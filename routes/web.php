@@ -38,6 +38,8 @@ Route::middleware(['auth','role:admin'])->group(function() {
     Route::get('/admin/dashboard', [AdminController::class,'AdminDashboard'])->name('admin.dashboard');
     //admin logout
     Route::get('/admin/logout', [AdminController::class,'AdminDestroy'])->name('admin.logout');
+    //admin profile
+    Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
 });
 //admin login 
 Route::get('/admin/login', [AdminController::class,'AdminLogin']);

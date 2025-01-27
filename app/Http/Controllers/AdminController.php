@@ -5,17 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use App\Models\User;
 
 class AdminController extends Controller
 {
     //admin dashboard
     public function AdminDashboard() {
         return view('admin.index');
-    }
+    }//end
 
+    //admin login
     public function AdminLogin() {
         return view('Admin.admin_login');
-    }
+    }//end
 
     //admin logout
     public function AdminDestroy(Request $request): RedirectResponse
@@ -26,6 +28,14 @@ class AdminController extends Controller
             $request->session()->regenerateToken();
 
             return redirect('/admin/login');
-        }
+        }//end
+
+    //admin profile
+    public function AdminProfile() {
+        $id = Auth::user()->id;
+        $adminData = User::find($id);
+
+        return view('admin.admin_profile_view', compact('adminData'));
+    }
 
 }
