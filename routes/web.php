@@ -35,13 +35,17 @@ require __DIR__.'/auth.php';
 
 //Admin dash_board
 Route::middleware(['auth','role:admin'])->group(function() {
-    Route::get('/admin/dashboard', [AdminController::class,'AdminDashboard'])->name('admin.dashboard');
+    Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
     //admin logout
-    Route::get('/admin/logout', [AdminController::class,'AdminDestroy'])->name('admin.logout');
+    Route::get('/admin/logout', [AdminController::class, 'AdminDestroy'])->name('admin.logout');
     //admin profile
     Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
     //admin profile save changes
-    Route::post('/admin/profile/store',[AdminController::class, 'AdminProfileSaveChange'])->name('admin.profile.store');
+    Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileSaveChange'])->name('admin.profile.store');
+    //admin change password
+    Route::get('admin/change/password', [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
+    //admin update password
+    Route::post('admin/update/password', [AdminController::class, 'AdminUpdatePassword'])->name('admin.update.password');
 });
 //admin login 
 Route::get('/admin/login', [AdminController::class,'AdminLogin']);
