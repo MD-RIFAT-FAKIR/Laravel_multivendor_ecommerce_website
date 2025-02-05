@@ -83,7 +83,7 @@ class AdminController extends Controller
         }
 
         //updata new password
-        User::whereId(auth::user()->id)->update([
+        User::where('id',Auth::user()->id)->update([
             'password' => Hash::make($request->new_password)
         ]);
 
