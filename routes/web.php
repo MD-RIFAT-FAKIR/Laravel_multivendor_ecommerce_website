@@ -27,6 +27,8 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/dashboard', [UserController::class, 'UserDashboard'])->name('dashboard');
     //user profile store
     Route::post('/user/profile/store' , [UserController::class, 'UserProfileStore'])->name('user.profile.store');
+    //user profile logout
+    Route::get('/user/profile/logout' , [UserController::class, 'UserProfileLogout'])->name('user.profile.logout');
 });
 // Route::get('/dashboard', function () {
 //     return view('index');
