@@ -57,5 +57,25 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/login');
+    }//end
+
+    //user update password
+    public function UserUpdatePassword (Request $request) {
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed'
+        ]);
+
+        //match the current password
+        if(!Hash::check($request->old_password, auth::user()->password)){
+            return back()->with('error', 'Old Password Does Not Matched');
+        }
+
+        //update password
+        User::where('id', auth::user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        return back()->with('status', 'Password Changed Successfully');
     }
 }

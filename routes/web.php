@@ -29,6 +29,8 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/user/profile/store' , [UserController::class, 'UserProfileStore'])->name('user.profile.store');
     //user profile logout
     Route::get('/user/profile/logout' , [UserController::class, 'UserProfileLogout'])->name('user.profile.logout');
+    //user update password
+    Route::post('/user/update/password' , [UserController::class, 'UserUpdatePassword'])->name('user.update.password');
 });
 // Route::get('/dashboard', function () {
 //     return view('index');
