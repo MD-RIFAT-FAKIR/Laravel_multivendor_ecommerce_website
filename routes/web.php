@@ -32,9 +32,7 @@ Route::middleware(['auth'])->group(function() {
     //user update password
     Route::post('/user/update/password' , [UserController::class, 'UserUpdatePassword'])->name('user.update.password');
 });
-// Route::get('/dashboard', function () {
-//     return view('index');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
