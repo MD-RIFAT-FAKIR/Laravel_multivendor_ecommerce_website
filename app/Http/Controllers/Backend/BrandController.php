@@ -29,8 +29,8 @@ class BrandController extends Controller
             $img = $manager->read($request->file('brand_image'));
             $img = $img->resize(300,246);
 
-            $img->toJpeg(80)->save(base_path('public/upload/brand'.$name_gen));
-            $save_url = 'upload/brand'.$name_gen;
+            $img->toJpeg(80)->save(base_path('public/upload/brand/'.$name_gen));
+            $save_url = 'upload/brand/'.$name_gen;
 
             Brand::insert([
                 'brand_name' => $request->brand_name,

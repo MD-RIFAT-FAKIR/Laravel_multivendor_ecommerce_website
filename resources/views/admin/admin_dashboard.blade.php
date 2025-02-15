@@ -83,6 +83,8 @@
 	  <script src="{{asset('adminbackend/assets/js/index.js')}}"></script>
 	<!--app JS-->
 	<script src="{{asset('adminbackend/assets/js/app.js')}}"></script>
+	<!-- add brand validation -->
+	<script src="{{asset('adminbackend/assets/js/validate.min.js')}}"></script>
 
 	<!--Datatable JS-->
 	<script src="{{asset('adminbackend/assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
