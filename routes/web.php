@@ -82,9 +82,16 @@ Route::get('/vendor/login', [VendorController::class, 'VendorLogin']);
 Route::middleware(['auth','role:admin'])->group(function() {
     //Backend all brand
     Route::controller(BrandController::class)->group(function() {
+        //all brand 
         Route::get('all/brand', 'AllBrand')->name('all.brand');
+        //brand add
         Route::get('add/brand', 'AddBrand')->name('add.brand');
+        //save brand
         Route::post('store/brand', 'StoreBrand')->name('store.brand');
+        // edit brand
+        Route::get('edit/brand/{id}', 'EditBrand')->name('edit.brand');
+        //update brand
+        Route::post('update/brand', 'UpdateBrand')->name('update.brand');
     });
 
 });
