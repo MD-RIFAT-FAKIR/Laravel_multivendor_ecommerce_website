@@ -20,4 +20,32 @@ class CategoryController extends Controller
     public function AddCategory() {
         return view('backend.category.category_add');
     }
+
+    //store brand
+    public function StoreCategory(Request $request) {
+
+        if($request->file('category_image')) {
+            $manager = new ImageManager(new Driver());
+            $name_gen = hexdec(uniqid()).'.'.$request->file('category_image')->getClientOriginalExtension();
+            $img = $manager->read($request->file('category_image'));
+            $img = $img->resize(120,120);
+
+            $img->toJpeg(80)->save(base_path('public/upload/category/'.$name_gen));
+            $save_url = 'upload/category/'.$name_gen;
+
+            Category::insert([
+                'category_name' => $request->category_name,
+                'category_slug' => strtolower(str_replace('','-',$request->category_name)),
+                'category_image' => $save_url
+            ]);
+        }//end if
+
+        $notification = array (
+                'message' => 'Category Inserted Successfully',
+                'alert-type' => 'success'
+        );
+        
+        return redirect()->route('all.category')->with($notification);
+
+    }//end
 }
