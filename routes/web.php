@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\CategoryController;
 
 
 /*
@@ -96,4 +97,13 @@ Route::middleware(['auth','role:admin'])->group(function() {
         Route::get('delete/brand/{id}', 'DeleteBrand')->name('delete.brand');
     });
 
+});
+
+//admin all category
+Route::middleware(['auth', 'role:admin'])->group(function() {
+    Route::controller(CategoryController::class)->group(function() {
+        Route::get('all/category', 'AllCategory')->name('all.category');
+        Route::get('add/category', 'AddCategory')->name('add.category');
+
+    });
 });
