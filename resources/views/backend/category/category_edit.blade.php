@@ -23,7 +23,7 @@
             <div class="col-lg-10">
                 <div class="card">
                     <div class="card-body">
-                        <form id="myForm" method="post" action="{{ route('update.brand') }}" enctype="multipart/form-data" >
+                        <form id="myForm" method="post" action="{{ route('update.category') }}" enctype="multipart/form-data" >
                             @csrf  
                                 <div>
                                     <input type="hidden" name="id" value="{{ $category->id }}">
@@ -73,13 +73,13 @@
     $(document).ready(function (){
         $('#myForm').validate({
             rules: {
-                brand_name: {
+                category_name: {
                     required : true,
                 }, 
             },
             messages :{
-                brand_name: {
-                    required : 'Please Enter Brand Name',
+                category_name: {
+                    required : 'Please Enter Category Name',
                 },
             },
             errorElement : 'span', 
