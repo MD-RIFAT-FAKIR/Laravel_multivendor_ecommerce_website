@@ -48,4 +48,12 @@ class CategoryController extends Controller
         return redirect()->route('all.category')->with($notification);
 
     }//end
+
+    
+    // edit brand
+    public function EditCategory($id) {
+        $category = Category::findorFail($id);
+
+        return view('backend.category.category_edit', compact('category'));
+    }//end
 }
