@@ -102,11 +102,18 @@ Route::middleware(['auth','role:admin'])->group(function() {
 //admin all category
 Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::controller(CategoryController::class)->group(function() {
+        //all catecory
         Route::get('all/category', 'AllCategory')->name('all.category');
+        //add category
         Route::get('add/category', 'AddCategory')->name('add.category');
+        //store category
         Route::post('store/category', 'StoreCategory')->name('store.category');
+        //edit category
         Route::get('edit/category/{id}', 'EditCategory')->name('edit.category');
+        //pudate category
         Route::post('update/category', 'UpdateCategory')->name('update.category');
+        //delete category
+        Route::get('delete/category/{id}', 'DeleteCategory')->name('delete.category');
 
     });
 });

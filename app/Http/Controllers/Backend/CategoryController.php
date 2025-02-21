@@ -104,4 +104,20 @@ class CategoryController extends Controller
             return redirect()->route('all.category')->with($notification);
         }//end else
     }//end Brand update
+
+    //delete brand
+    public function DeleteCategory($id) {
+        $category = Category::findOrFail($id);
+        $img = $category->category_image;
+        unlink($img);
+
+        Category::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Category Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }
