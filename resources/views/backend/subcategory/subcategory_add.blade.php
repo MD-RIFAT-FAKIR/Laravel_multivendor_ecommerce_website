@@ -23,14 +23,14 @@
             <div class="col-lg-10">
                 <div class="card">
                     <div class="card-body">
-                        <form id="myForm" method="post" action="{{ route('store.category') }}" enctype="multipart/form-data" >
+                        <form id="myForm" method="post" action="{{ route('store.subcategory') }}" >
                             @csrf       
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Category Name</h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
-                                        <select class="form-select mb-3" aria-label="Default select example">
+                                        <select name="category_id" class="form-select mb-3" aria-label="Default select example">
                                             <option selected>Select Category Name</option>
                                             @foreach($category as $cat)
                                             <option value="{{ $cat->id }}">{{ $cat->category_name }}</option>
