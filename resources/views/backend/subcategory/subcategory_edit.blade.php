@@ -33,7 +33,7 @@
                                         <select name="category_id" class="form-select mb-3" aria-label="Default select example">
                                             <option selected>Select Category Name</option>
                                             @foreach($category as $cat)
-                                            <option value="{{ $cat->id }}">{{ $cat->category_name }}</option>
+                                            <option value="{{ $cat->id }}" {{ $subcategory->category_id == $cat->id ? 'selected' : ''}} >{{ $cat->category_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -43,7 +43,7 @@
                                         <h6 class="mb-0">SubCategory Name</h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
-                                        <input type="text" name="subcategory_name" class="form-control"   />
+                                        <input type="text" name="subcategory_name" class="form-control" value="{{ $subcategory->subcategory_name }}"  />
                                     </div>
                                 </div>
                                 <div class="row">

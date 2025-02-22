@@ -129,5 +129,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('add/subcategory' , 'AddSubcategory')->name('add.subcategory');
         //store subcategory
         Route::post('store/subcategory' , 'StoreSubcategory')->name('store.subcategory');
+        //edit subcategory
+        Route::get('edit/subcategory/{id}', 'EditSubcategory')->name('edit.subcategory');
     });
 });
