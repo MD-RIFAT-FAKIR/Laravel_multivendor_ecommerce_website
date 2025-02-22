@@ -7,6 +7,7 @@ use App\Http\Controllers\VendorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\SubcategoryController;
 
 
 /*
@@ -99,7 +100,7 @@ Route::middleware(['auth','role:admin'])->group(function() {
 
 });
 
-//admin all category
+//admin category
 Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::controller(CategoryController::class)->group(function() {
         //all catecory
@@ -115,5 +116,16 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //delete category
         Route::get('delete/category/{id}', 'DeleteCategory')->name('delete.category');
 
+    });
+});
+
+//admin subcategory
+Route::middleware(['auth', 'role:admin'])->group(function() {
+    
+    Route::controller(SubcategoryController::class)->group(function() {
+        //all subcategories
+        Route::get('all/subcategory', 'AllSubcategory')->name('all.subcategory');
+        //add subcategories
+        Route::get('add/subcategory' , 'AddSubcategory')->name('add.subcategory');
     });
 });
