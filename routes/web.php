@@ -131,5 +131,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::post('store/subcategory' , 'StoreSubcategory')->name('store.subcategory');
         //edit subcategory
         Route::get('edit/subcategory/{id}', 'EditSubcategory')->name('edit.subcategory');
+        //update subcategory
+        Route::post('update/subcategory', 'UpdateSubcategory')->name('update.subcategory');
     });
 });
