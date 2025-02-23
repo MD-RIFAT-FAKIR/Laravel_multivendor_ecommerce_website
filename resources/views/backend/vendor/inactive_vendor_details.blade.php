@@ -25,15 +25,17 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{route('vendor.profile.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('inactive.vendor.approve')}}" method="post">
                         @csrf  
+
+                    <input type="hidden" name="id" value="{{ $inActiveVendorDetails->id }}">
 
                     <div class="row mb-3">
                         <div class="col-sm-3">
                             <h6 class="mb-0">Shop Name</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <input type="text" class="form-control" name="name" value="{{$inActiveVendorDetails->name}}" disabled/>
+                            <input type="text" class="form-control" name="name" value="{{ $inActiveVendorDetails->name }}" disabled/>
                         </div>
                     </div>
                     <div class="row mb-3">
