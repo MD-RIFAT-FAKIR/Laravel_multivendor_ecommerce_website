@@ -155,5 +155,7 @@ Route::controller(AdminController::class)->group(function() {
     Route::post('inactive/vendor/approve' , 'InactiveVendorApprove')->name('inactive.vendor.approve');
     //active vendor details page
     Route::get('active/vendor/details/{id}', 'ActiveVendorDetails')->name('active.vendor.details');
+    //active vendor disapprove
+    Route::post('active/vendor/disapprove' , 'ActiveVendorDisapprove')->name('active.vendor.disapprove');
 
 });

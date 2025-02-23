@@ -25,7 +25,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{route('inactive.vendor.approve')}}" method="post">
+                    <form action="{{route('active.vendor.disapprove')}}" method="post">
                         @csrf  
 
                     <input type="hidden" name="id" value="{{ $activeVendorDetails->id }}">
@@ -103,7 +103,7 @@
                     <div class="row">
                         <div class="col-sm-3"></div>
                         <div class="col-sm-9 text-secondary">
-                            <input type="submit" class="btn btn-danger px-4" value="Active Vendor" />
+                            <input type="submit" class="btn btn-danger px-4" value="Inactive Vendor" />
                         </div>
                     </div>
                 </form>
