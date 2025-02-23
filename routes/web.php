@@ -149,5 +149,7 @@ Route::controller(AdminController::class)->group(function() {
     Route::get('inactive/vendor' , 'InactiveVendor')->name('inactive.vendor');
     //active vendor
     Route::get('active/vendor' , 'ActiveVendor')->name('active.vendor');
+    //inactive vendor details
+    Route::get('inactibe/vendor/details/{id}', 'InactiveVendorDetails')->name('inactibe.vendor.details');
 
 });
