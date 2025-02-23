@@ -123,6 +123,13 @@ class AdminController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->route('active.vendor')->with($notification);
-    }
+    }//end
+
+    //active bendor details 
+    public function ActiveVendorDetails($id) {
+        $activeVendorDetails = User::findOrFail($id);
+
+        return view('backend.vendor.active_vendor_details', compact('activeVendorDetails'));
+    }//end
 
 }

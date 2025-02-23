@@ -153,5 +153,7 @@ Route::controller(AdminController::class)->group(function() {
     Route::get('inactibe/vendor/details/{id}', 'InactiveVendorDetails')->name('inactibe.vendor.details');
     //inactive vendor approve
     Route::post('inactive/vendor/approve' , 'InactiveVendorApprove')->name('inactive.vendor.approve');
+    //active vendor details page
+    Route::get('active/vendor/details/{id}', 'ActiveVendorDetails')->name('active.vendor.details');
 
 });
