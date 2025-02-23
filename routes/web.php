@@ -141,3 +141,10 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('delete/subcategory/{id}', 'DeleteSubcategory')->name('delete.subcategory');
     });
 });
+
+
+//Vendor inactive and active all route
+Route::controller(AdminController::class)->group(function() {
+    Route::get('inactive/vendor' , 'InactiveVendor')->name('inactive.vendor');
+
+});
