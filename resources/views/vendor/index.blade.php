@@ -1,8 +1,20 @@
 @extends('vendor.vendor_dashboard')
 
 @section('vendor')
-<div class="page-content">
 
+@php
+	$id = Auth::User()->id;
+	$vendorId = App\Models\User::find($id);
+	$status = $vendorId->status;
+@endphp
+
+<div class="page-content">
+@if($status === 'active')
+	<h4>Vendro is <span class="text-success">Active</span></h4>
+	@else
+		<h4>Vendro is <span class="text-danger">Inactive</span></h4>
+		<p class="text-warning">Please wait admin will check and approve your acount !!</p>
+@endif
 <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
 	<div class="col">
 		<div class="card radius-10 bg-gradient-deepblue">
