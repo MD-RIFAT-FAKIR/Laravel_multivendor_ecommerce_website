@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubcategoryController;
+use App\Http\Controllers\Backend\ProductController;
 
 
 /*
@@ -158,4 +159,13 @@ Route::controller(AdminController::class)->group(function() {
     //active vendor disapprove
     Route::post('active/vendor/disapprove' , 'ActiveVendorDisapprove')->name('active.vendor.disapprove');
 
+});
+
+//Admin product all route
+Route::controller(ProductController::class)->group(function() {
+    //all catecory
+    Route::get('all/product', 'AllProduct')->name('all.product');
+    //add category
+    Route::get('add/category', 'AddCategory')->name('add.category');
+    //store category
 });
