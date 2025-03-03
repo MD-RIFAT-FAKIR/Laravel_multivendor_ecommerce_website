@@ -88,18 +88,18 @@
 									<label for="inputProductType" class="form-label">Product Brand</label>
 									<select class="form-select" name="brand_id" id="inputProductType">
 										<option></option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
+										@foreach($Brands as $brand)
+										<option value="{{ $brand->id }}">{{ $brand->brand_name }}</option>
+										@endforeach
 									  </select>
 								  </div>
 								  <div class="col-12">
 									<label for="inputVendor" class="form-label">Product Category</label>
 									<select class="form-select" name="category_id" id="inputVendor">
 										<option></option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
+										@foreach($Category as $cat)
+										<option value="{{ $cat->id }}">{{ $cat->category_name }}</option>
+										@endforeach
 									  </select>
 								  </div>
 								  <div class="col-12">
@@ -115,9 +115,9 @@
 									<label for="inputCollection" class="form-label">Select Vendor</label>
 									<select class="form-select" name="vendor_id" id="inputCollection">
 										<option></option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
+										@foreach($ActiveVendor as $vendor)
+										<option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
+										@endforeach
 									  </select>
 								  </div>
 								  <div class="col-12">
@@ -167,49 +167,48 @@
 
 
 
-<!-- main Thambnail img show script -->
-<script type="text/javascript">
-	function mainThamUrl(input){
-		if (input.files && input.files[0]) {
-			var reader = new FileReader();
-			reader.onload = function(e){
-				$('#mainThmb').attr('src',e.target.result).width(80).height(80);
-			};
-			reader.readAsDataURL(input.files[0]);
-		}
-	}
-</script>
+		<!-- main Thambnail img show script -->
+		<script type="text/javascript">
+			function mainThamUrl(input){
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+					reader.onload = function(e){
+						$('#mainThmb').attr('src',e.target.result).width(80).height(80);
+					};
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
+		</script>
 
-<!-- multiple img show script -->
-<script> 
- 
- $(document).ready(function(){
-  $('#multiImg').on('change', function(){ //on file input change
-	 if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
-	 {
-		 var data = $(this)[0].files; //this file data
-		  
-		 $.each(data, function(index, file){ //loop though each file
-			 if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
-				 var fRead = new FileReader(); //new filereader
-				 fRead.onload = (function(file){ //trigger function on successful read
-				 return function(e) {
-					 var img = $('<img/>').addClass('thumb').attr('src', e.target.result) .width(100)
-				 .height(80); //create image element 
-					 $('#preview_img').append(img); //append image to output element
-				 };
-				 })(file);
-				 fRead.readAsDataURL(file); //URL representing the file's data.
-			 }
-		 });
-		  
-	 }else{
-		 alert("Your browser doesn't support File API!"); //if File API is absent
-	 }
-  });
- });
-  
- </script>
-
+		<!-- multiple img show script -->
+		<script> 
+		
+		$(document).ready(function(){
+		$('#multiImg').on('change', function(){ //on file input change
+			if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
+			{
+				var data = $(this)[0].files; //this file data
+				
+				$.each(data, function(index, file){ //loop though each file
+					if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
+						var fRead = new FileReader(); //new filereader
+						fRead.onload = (function(file){ //trigger function on successful read
+						return function(e) {
+							var img = $('<img/>').addClass('thumb').attr('src', e.target.result) .width(100)
+						.height(80); //create image element 
+							$('#preview_img').append(img); //append image to output element
+						};
+						})(file);
+						fRead.readAsDataURL(file); //URL representing the file's data.
+					}
+				});
+				
+			}else{
+				alert("Your browser doesn't support File API!"); //if File API is absent
+			}
+		});
+		});
+		
+		</script>
 
 @endsection
