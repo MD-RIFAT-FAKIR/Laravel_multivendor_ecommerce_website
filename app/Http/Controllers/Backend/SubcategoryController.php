@@ -76,5 +76,12 @@ class SubcategoryController extends Controller
     
         return redirect()->back()->with($notification);
         
+    }//end
+
+    //automatically get subcategory data on admin dashboard when category is selected
+    public function GetSubcategory($category_id) {
+        $subcat = Subcategor::where('category_id',$category_id)->orderBy('subcategory_name','ASC')->get();
+
+        return json_encode($subcat);
     }
 }

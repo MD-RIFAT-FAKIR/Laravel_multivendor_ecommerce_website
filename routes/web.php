@@ -140,6 +140,10 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::post('update/subcategory', 'UpdateSubcategory')->name('update.subcategory');
         //delete subcategory
         Route::get('delete/subcategory/{id}', 'DeleteSubcategory')->name('delete.subcategory');
+        // subcategory automatically load in admin add product page,
+        // when category is selected 
+        Route::get('/subcategory/ajax/{category_id}', 'GetSubcategory');
+
     });
 });
 
