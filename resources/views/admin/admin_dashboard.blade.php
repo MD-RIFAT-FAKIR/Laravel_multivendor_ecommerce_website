@@ -7,6 +7,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--favicon-->
 	<link rel="icon" href="{{asset('adminbackend/assets/images/favicon-32x32.png')}}" type="image/png" />
+	<!-- tag input -->
+	<link href=" {{ asset('adminbackend/assets/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
+	<!-- tinymce -->
+	<script
+      src="https://cdn.tiny.cloud/1/73yzz9jn4sdvexn9tlsgxri1ula6pve6gsdbr2ykt5gwehzg/tinymce/7/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
 	<!--plugins-->
 	<link href="{{asset('adminbackend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css')}}" rel="stylesheet"/>
 	<link href="{{asset('adminbackend/assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet" />
@@ -123,6 +130,76 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
  <script src="{{ asset('adminbackend/assets/js/code.js') }}"></script>
+ <!-- input tag -->
+ <script src=" {{asset('adminbackend/assets/plugins/input-tags/js/tagsinput.js')}}"></script>
+
+
+
+
+ <!-- tinymce -->
+ <script>
+      tinymce.init({
+        selector: "#mytextarea",
+        plugins: [
+          // Core editing features
+          "anchor",
+          "autolink",
+          "charmap",
+          "codesample",
+          "emoticons",
+          "image",
+          "link",
+          "lists",
+          "media",
+          "searchreplace",
+          "table",
+          "visualblocks",
+          "wordcount",
+          // Your account includes a free trial of TinyMCE premium features
+          // Try the most popular premium features until Mar 17, 2025:
+          "checklist",
+          "mediaembed",
+          "casechange",
+          "export",
+          "formatpainter",
+          "pageembed",
+          "a11ychecker",
+          "tinymcespellchecker",
+          "permanentpen",
+          "powerpaste",
+          "advtable",
+          "advcode",
+          "editimage",
+          "advtemplate",
+          "ai",
+          "mentions",
+          "tinycomments",
+          "tableofcontents",
+          "footnotes",
+          "mergetags",
+          "autocorrect",
+          "typography",
+          "inlinecss",
+          "markdown",
+          "importword",
+          "exportword",
+          "exportpdf",
+        ],
+        toolbar:
+          "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
+        tinycomments_mode: "embedded",
+        tinycomments_author: "Author name",
+        mergetags_list: [
+          { value: "First.Name", title: "First Name" },
+          { value: "Email", title: "Email" },
+        ],
+        ai_request: (request, respondWith) =>
+          respondWith.string(() =>
+            Promise.reject("See docs to implement AI Assistant")
+          ),
+      });
+    </script>
+
 </body>
 
 </html>

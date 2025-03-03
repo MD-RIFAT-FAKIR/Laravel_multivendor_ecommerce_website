@@ -166,6 +166,6 @@ Route::controller(ProductController::class)->group(function() {
     //all catecory
     Route::get('all/product', 'AllProduct')->name('all.product');
     //add category
-    Route::get('add/category', 'AddCategory')->name('add.category');
+    Route::get('add/product', 'AddProduct')->name('add.product');
     //store category
 });
