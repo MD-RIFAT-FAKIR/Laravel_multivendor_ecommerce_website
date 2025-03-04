@@ -39,8 +39,8 @@ class ProductController extends Controller
         $img = $manager->read($img);
         $img = $img->resize(800,800);
 
-        $img->toJpeg(80)->save(base_path('public/upload/products/thambnails'.$name_gen));
-        $save_url = 'upload/products/thambnails'.$name_gen;
+        $img->toJpeg(80)->save(base_path('public/upload/products/thambnails/'.$name_gen));
+        $save_url = 'upload/products/thambnails/'.$name_gen;
 
         $Product_id = Product::insertGetId([
             'brand_id' => $request->brand_id,
@@ -81,8 +81,8 @@ class ProductController extends Controller
             $img = $manager->read($img);
             $img = $img->resize(800,800);
     
-            $img->toJpeg(80)->save(base_path('public/upload/products/multi-img'.$name_gen));
-            $upload_url = 'upload/products/multi-img'.$name_gen;
+            $img->toJpeg(80)->save(base_path('public/upload/products/multi-img/'.$name_gen));
+            $upload_url = 'upload/products/multi-img/'.$name_gen;
 
             MultiImg::insert([
                 'product_id' => $Product_id,
