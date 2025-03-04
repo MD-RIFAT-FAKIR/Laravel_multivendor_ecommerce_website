@@ -173,4 +173,6 @@ Route::controller(ProductController::class)->group(function() {
     Route::get('add/product', 'AddProduct')->name('add.product');
     //store product
     Route::post('store/product', 'StoreProduct')->name('store.product');
+    //edit product
+    Route::get('edit/product/{id}', 'EditProduct')->name('edit.product');
 });

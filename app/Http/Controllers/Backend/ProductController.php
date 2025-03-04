@@ -98,5 +98,17 @@ class ProductController extends Controller
         );
     
         return redirect()->route('all.product')->with($notification);
-    }
+    }//end 
+
+    //edit product
+    public function EditProduct($id) {
+        $Brands = Brand::latest()->get();
+        $Category = Category::latest()->get();
+        $Subcategory = Subcategor::latest()->get();
+        $Product = Product::findOrFail($id);
+        $ActiveVendor = User::where('status','active')->where('role','vendor')->latest()->get();
+        
+        return view('backend.product.product_edit', compact('Brands','Category','ActiveVendor','Subcategory','Product'));
+
+    }//end
 }
