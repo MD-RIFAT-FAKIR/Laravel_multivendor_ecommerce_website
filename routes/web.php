@@ -167,9 +167,10 @@ Route::controller(AdminController::class)->group(function() {
 
 //Admin product all route
 Route::controller(ProductController::class)->group(function() {
-    //all catecory
+    //all product
     Route::get('all/product', 'AllProduct')->name('all.product');
-    //add category
+    //add product
     Route::get('add/product', 'AddProduct')->name('add.product');
-    //store category
+    //store product
+    Route::post('store/product', 'StoreProduct')->name('store.product');
 });
