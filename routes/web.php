@@ -177,5 +177,7 @@ Route::controller(ProductController::class)->group(function() {
     Route::get('edit/product/{id}', 'EditProduct')->name('edit.product');
     //update product
     Route::post('/update/product', 'UpdateProduct')->name('update.product');
+    //update product main thambnail
+    Route::post('update/product/thambnail', 'UpdateProductThambnail')->name('update.product.thambnail');
 
 });
