@@ -181,6 +181,8 @@ Route::controller(ProductController::class)->group(function() {
     Route::post('update/product/thambnail', 'UpdateProductThambnail')->name('update.product.thambnail');
     //update product multi imgae
     Route::post('update/product/multiimg', 'UpdateProductMultiImg')->name('update.product.multiimg');
+    //delete product multi image
+    Route::get('delete/product/multiimg/{id}', 'DeleteProductMultiImg')->name('delete.product.multiimg');
 
 
 });
