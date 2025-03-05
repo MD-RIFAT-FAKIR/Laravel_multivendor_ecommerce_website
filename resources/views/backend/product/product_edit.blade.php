@@ -163,7 +163,7 @@
 			  </div>
 			</div>
 
-<!-- product main thambnail image  -->
+<!--update product main thambnail image  -->
 <div class="page-content">
 	<h6 class="mb-0 text-uppercase">Update Main Thambnail Image</h6>
 	<hr>
@@ -188,7 +188,45 @@
 	</div>
 </div>
 
-<!-- end product main thambnail image  -->
+<!-- end update product main thambnail image  -->
+
+<!-- update product multi images -->
+<div class="page-content">
+	<h6 class="mb-0 text-uppercase">Update Product's Multi Image</h6>
+	<hr>
+<div class="card">
+	<div class="card-body">
+		<table class="table mb-0 table-striped">
+			<thead>
+				<tr>
+					<th scope="col">#SL</th>
+					<th scope="col">Image</th>
+					<th scope="col">Change Image</th>
+					<th scope="col">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+			<form method="post" action="{{ route('update.product.multiimg') }}" enctype="multipart/form-data">
+				@csrf  
+				@foreach($mulImgs as $key => $img)
+				<tr>
+					<th scope="row">{{ $key+1 }}</th>
+					<td><img src="{{ asset($img->photo_name) }}" style="width: 70px; height: 40px"></td>
+					<td><input type="file" class="form-group" name="mul_img[{{ $img->id }}]"></td>
+					<td>
+						<input type="submit" class="btn btn-primary px-4" value="Update Image" />
+						<a href="" class="btn btn-danger">Delete</a>
+					</td>
+				</tr>
+				@endforeach
+			</form>
+			</tbody>
+		</table>
+	</div>
+</div>
+</div>
+<!-- end update product multi images -->
+
 
 
 <!-- form validation -->

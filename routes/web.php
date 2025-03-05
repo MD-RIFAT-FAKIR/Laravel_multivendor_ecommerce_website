@@ -179,5 +179,8 @@ Route::controller(ProductController::class)->group(function() {
     Route::post('/update/product', 'UpdateProduct')->name('update.product');
     //update product main thambnail
     Route::post('update/product/thambnail', 'UpdateProductThambnail')->name('update.product.thambnail');
+    //update product multi imgae
+    Route::post('update/product/multiimg', 'UpdateProductMultiImg')->name('update.product.multiimg');
+
 
 });

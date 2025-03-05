@@ -102,13 +102,14 @@ class ProductController extends Controller
 
     //edit product
     public function EditProduct($id) {
+        $mulImgs = MultiImg::where('product_id',$id)->get();
         $Brands = Brand::latest()->get();
         $Category = Category::latest()->get();
         $Subcategory = Subcategor::latest()->get();
         $Product = Product::findOrFail($id);
         $ActiveVendor = User::where('status','active')->where('role','vendor')->latest()->get();
         
-        return view('backend.product.product_edit', compact('Brands','Category','ActiveVendor','Subcategory','Product'));
+        return view('backend.product.product_edit', compact('Brands','Category','ActiveVendor','Subcategory','Product','mulImgs'));
 
     }//end
 
@@ -179,6 +180,36 @@ class ProductController extends Controller
 
         $notification = array (
             'message' => 'Thambnail Image Updated Successfully',
+            'alert-type' => 'success'
+        );
+    
+        return redirect()->back()->with($notification);
+    }//end
+
+    // update product multi image
+    public function UpdateProductMultiImg(Request $request) {
+        $imgs = $request->mul_img;
+
+        foreach($imgs as $id => $img) {
+            $delImg = MultiImg::findOrFail($id);
+            unlink($delImg->photo_name);
+
+            $manager = new ImageManager(new Driver());
+            $name_gen = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
+            $img = $manager->read($img);
+            $img = $img->resize(800,800);
+    
+            $img->toJpeg(80)->save(base_path('public/upload/products/multi-img/'.$name_gen));
+            $upload_url = 'upload/products/multi-img/'.$name_gen;
+
+            MultiImg::where('id',$id)->update([
+                'photo_name' => $upload_url,
+                'created_at' => Carbon::now(),
+            ]);
+        }//end foreach
+
+        $notification = array (
+            'message' => 'Multi Image Updated Successfully',
             'alert-type' => 'success'
         );
     
