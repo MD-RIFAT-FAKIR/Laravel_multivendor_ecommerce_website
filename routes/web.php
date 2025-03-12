@@ -183,8 +183,10 @@ Route::controller(ProductController::class)->group(function() {
     Route::post('update/product/multiimg', 'UpdateProductMultiImg')->name('update.product.multiimg');
     //delete product multi image
     Route::get('delete/product/multiimg/{id}', 'DeleteProductMultiImg')->name('delete.product.multiimg');
-    //product status inactive
+    //product status active to inactive
     Route::get('product.inactive/{id}', 'ProductInactive')->name('product.inactive');
+    //product status inactive to active
+    Route::get('product.active/{id}', 'ProductActive')->name('product.active');
 
 
 });
