@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Middleware\RedirectIfAuthenticated;
 
 
 /*
@@ -61,7 +62,7 @@ Route::middleware(['auth','role:admin'])->group(function() {
     Route::post('admin/update/password', [AdminController::class, 'AdminUpdatePassword'])->name('admin.update.password');
 });
 //admin login 
-Route::get('/admin/login', [AdminController::class,'AdminLogin']);
+Route::get('/admin/login', [AdminController::class,'AdminLogin'])->middleware(RedirectIfAuthenticated::class);
 
 //Vendor dash_board
 Route::middleware(['auth','role:vendor'])->group(function() {
@@ -79,7 +80,7 @@ Route::middleware(['auth','role:vendor'])->group(function() {
     Route::post('vendor/update/password', [VendorController::class, 'VendorUpdatePassword'])->name('vendor.update.password');
 });
 //vendor login
-Route::get('/vendor/login', [VendorController::class, 'VendorLogin'])->name('vendor.login');
+Route::get('/vendor/login', [VendorController::class, 'VendorLogin'])->name('vendor.login')->middleware(RedirectIfAuthenticated::class);
 //become a vendor
 Route::get('become/vendor', [VendorController::class, 'BecomeVendor'])->name('become.vendor');
 //vendor register
