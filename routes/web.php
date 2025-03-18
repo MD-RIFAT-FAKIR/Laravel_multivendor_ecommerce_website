@@ -86,6 +86,9 @@ Route::middleware(['auth','role:vendor'])->group(function() {
         Route::get('vendor/all/product', 'VendorAllProduct')->name('vendor.all.product');
         //vendor add product 
         Route::get('vendor/add/product', 'VendorAddProduct')->name('vendor.add.product');
+         // subcategory automatically load in admin add product page,
+        // when category is selected 
+        Route::get('/vendor/subcategory/ajax/{category_id}', 'VendorGetSubcategory');
     });
 });
 //vendor login

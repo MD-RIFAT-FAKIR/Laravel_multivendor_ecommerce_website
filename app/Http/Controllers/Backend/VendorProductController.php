@@ -31,4 +31,11 @@ class VendorProductController extends Controller
         
         return view('vendor.backend.product.vendor_product_add', compact('Brands','Category'));
     }//end
+
+      //automatically get subcategory data on vendor dashboard when category is selected
+      public function VendorGetSubcategory($category_id) {
+        $subcat = Subcategor::where('category_id',$category_id)->orderBy('subcategory_name','ASC')->get();
+
+        return json_encode($subcat);
+    }
 }
