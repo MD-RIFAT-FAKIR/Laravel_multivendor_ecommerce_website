@@ -25,7 +25,7 @@
 				  <div class="card-body p-4">
 					  <h5 class="card-title">Add New Product</h5>
 					  <hr/>
-					  <form id="myForm" method="post" action="{{ route('store.product') }}" enctype="multipart/form-data" >
+					  <form id="myForm" method="post" action="{{ route('vendor.store.product') }}" enctype="multipart/form-data" >
                             @csrf  
                        <div class="form-body mt-4">
 					    <div class="row">
@@ -116,26 +116,26 @@
 									<div class="row g-3">
 										<div class="col-md-6">
 											<div class="form-check">
-												<input class="form-check-input" name="hot_deals" type="checkbox" value="1" id="flexCheckDefault">
-												<label class="form-check-label" for="flexCheckDefault">Hot Deals</label>
+												<input class="form-check-input" name="hot_deals" type="checkbox" value="1" id="hotdeals">
+												<label class="form-check-label" for="hotdeals">Hot Deals</label>
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-check">
-												<input class="form-check-input" name="featured" type="checkbox" value="1" id="flexCheckDefault">
-												<label class="form-check-label" for="flexCheckDefault">Featured</label>
+												<input class="form-check-input" name="featured" type="checkbox" value="1" id="featured">
+												<label class="form-check-label" for="featured">Featured</label>
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-check">
-												<input class="form-check-input" name="special_offer" type="checkbox" value="1" id="flexCheckDefault">
-												<label class="form-check-label" for="flexCheckDefault">Special Offer</label>
+												<input class="form-check-input" name="special_offer" type="checkbox" value="1" id="specialoffer">
+												<label class="form-check-label" for="specialoffer">Special Offer</label>
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-check">
-												<input class="form-check-input" name="special_deals" type="checkbox" value="1" id="flexCheckDefault">
-												<label class="form-check-label" for="flexCheckDefault">Special Deal</label>
+												<input class="form-check-input" name="special_deals" type="checkbox" value="1" id="specialdeal">
+												<label class="form-check-label" for="specialdeal">Special Deal</label>
 											</div>
 										</div>
 									</div>
