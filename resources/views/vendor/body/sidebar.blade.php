@@ -19,7 +19,8 @@
 					</a>
 				</li>
 
-				@if($status === 'active')
+				
+				@if(auth()->user()->status === 'active')
 
 				<li>
 					<a href="javascript:;" class="has-arrow">
@@ -28,7 +29,7 @@
 						<div class="menu-title">Manage Product</div>
 					</a>
 					<ul>
-						<li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>AllProduct</a>
+						<li> <a href="{{ route('vendor.all.product') }}"><i class="bx bx-right-arrow-alt"></i>All Product</a>
 						</li>
 						<li> <a href="dashboard-eCommerce.html"><i class="bx bx-right-arrow-alt"></i>Add Product</a>
 						</li>

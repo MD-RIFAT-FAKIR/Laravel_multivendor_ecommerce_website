@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Controllers\Backend\VendorProductController;
 
 
 /*
@@ -78,6 +79,12 @@ Route::middleware(['auth','role:vendor'])->group(function() {
     Route::get('vendor/change/password', [VendorController::class, 'VendorChangePassword'])->name('vendor.change.password');
     //vendor update password
     Route::post('vendor/update/password', [VendorController::class, 'VendorUpdatePassword'])->name('vendor.update.password');
+
+    //vendor product all route
+    Route::controller(VendorProductController::class)->group(function() {
+        //vendor all product 
+        Route::get('vendor/all/product', 'VendorAllProduct')->name('vendor.all.product');
+    });
 });
 //vendor login
 Route::get('/vendor/login', [VendorController::class, 'VendorLogin'])->name('vendor.login')->middleware(RedirectIfAuthenticated::class);
