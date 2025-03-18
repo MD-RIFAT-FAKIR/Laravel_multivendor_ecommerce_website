@@ -84,6 +84,8 @@ Route::middleware(['auth','role:vendor'])->group(function() {
     Route::controller(VendorProductController::class)->group(function() {
         //vendor all product 
         Route::get('vendor/all/product', 'VendorAllProduct')->name('vendor.all.product');
+        //vendor add product 
+        Route::get('vendor/add/product', 'VendorAddProduct')->name('vendor.add.product');
     });
 });
 //vendor login

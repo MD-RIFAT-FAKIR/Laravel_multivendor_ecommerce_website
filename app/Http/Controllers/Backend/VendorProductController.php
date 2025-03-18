@@ -22,5 +22,13 @@ class VendorProductController extends Controller
         $id = Auth::user()->id;
         $products = Product::where('vendor_id',$id)->latest()->get();
         return view('vendor.backend.product.vendor_product_all', compact('products'));
-    }
+    }//end
+
+    //vendor add product
+    public function VendorAddProduct() {
+        $Brands = Brand::latest()->get();
+        $Category = Category::latest()->get();
+        
+        return view('vendor.backend.product.vendor_product_add', compact('Brands','Category'));
+    }//end
 }
