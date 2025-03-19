@@ -206,7 +206,7 @@
 					<td><input type="file" class="form-group" name="mul_img[{{ $img->id }}]"></td>
 					<td>
 						<input type="submit" class="btn btn-primary px-4" value="Update Image" />
-						<a href="{{ route('delete.product.multiimg',$img->id) }}" class="btn btn-danger" id="delete">Delete</a>
+						<a href="{{ route('vendor.delete.product.multiimg',$img->id) }}" class="btn btn-danger" id="delete">Delete</a>
 					</td>
 				</tr>
 				@endforeach
