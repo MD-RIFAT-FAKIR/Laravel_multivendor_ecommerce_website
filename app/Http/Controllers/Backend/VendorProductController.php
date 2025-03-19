@@ -240,4 +240,16 @@ class VendorProductController extends Controller
         return redirect()->back()->with($notification);
     }//end
 
+    //product status  active to inactive
+    public function VendorProductInactive($id) {
+        Product::findOrFail($id)->update(['status' => 0 ]);
+
+        $notification = array (
+            'message' => 'Product Inactive',
+            'alert-type' => 'success'
+        );
+    
+        return redirect()->back()->with($notification);
+    }//end
+
 }

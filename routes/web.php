@@ -98,6 +98,8 @@ Route::middleware(['auth','role:vendor'])->group(function() {
         Route::post('vendor/update/product/multiimg', 'VendorUpdateProductMultiImage')->name('vendor.update.product.multiimg');
         //vendor delete product multi images
         Route::get('vendor/delete/product/multiimg/{id}', 'VendorDeleteProductMultiImage')->name('vendor.delete.product.multiimg');
+        //vendor product active to inactive
+        Route::get('vendor/product/inactive/{id}', 'VendorProductInactive')->name('vendor.product.inactive');
 
 
 
