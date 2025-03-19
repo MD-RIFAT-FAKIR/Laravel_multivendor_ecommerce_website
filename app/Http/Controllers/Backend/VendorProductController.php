@@ -245,7 +245,19 @@ class VendorProductController extends Controller
         Product::findOrFail($id)->update(['status' => 0 ]);
 
         $notification = array (
-            'message' => 'Product Inactive',
+            'message' => 'Vendor Product Inactive',
+            'alert-type' => 'success'
+        );
+    
+        return redirect()->back()->with($notification);
+    }//end
+
+    //product status inactive to active 
+    public function VendorProductActive($id) {
+        Product::findOrFail($id)->update(['status' => 1 ]);
+
+        $notification = array (
+            'message' => 'Vendor Product Active',
             'alert-type' => 'success'
         );
     
