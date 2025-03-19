@@ -94,6 +94,8 @@ Route::middleware(['auth','role:vendor'])->group(function() {
         Route::post('vendor/update/product', 'VendorUpdateProduct')->name('vendor.update.product');
         //vendor update product thambnail
         Route::post('vendor/update/product/thambnail', 'VendorUpdateProductThambnail')->name('vendor.update.product.thambnail');
+        //vendor update product multi images
+        Route::post('vendor/update/product/multiimg', 'VendorUpdateProductMultiImage')->name('vendor.update.product.multiimg');
 
 
 

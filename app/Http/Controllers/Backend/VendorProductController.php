@@ -193,4 +193,36 @@ class VendorProductController extends Controller
         return redirect()->back()->with($notification);
     }//end
 
+
+    // update vendor products multi images
+    public function VendorUpdateProductMultiImage(Request $request) {
+        $imgs = $request->mul_img;
+
+        foreach($imgs as $id => $img) {
+            $delImg = MultiImg::findOrFail($id);
+            unlink($delImg->photo_name);
+
+            $manager = new ImageManager(new Driver());
+            $name_gen = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
+            $img = $manager->read($img);
+            $img = $img->resize(800,800);
+    
+            $img->toJpeg(80)->save(base_path('public/upload/products/multi-img/'.$name_gen));
+            $upload_url = 'upload/products/multi-img/'.$name_gen;
+
+            MultiImg::where('id',$id)->update([
+                'photo_name' => $upload_url,
+                'created_at' => Carbon::now(),
+            ]);
+        }//end foreach
+
+        $notification = array (
+            'message' => 'Vendor Product Multi Image Updated Successfully',
+            'alert-type' => 'success'
+        );
+    
+        return redirect()->back()->with($notification);
+    }//end
+
+
 }

@@ -197,7 +197,7 @@
 				</tr>
 			</thead>
 			<tbody>
-			<form method="post" action="{{ route('update.product.multiimg') }}" enctype="multipart/form-data">
+			<form method="post" action="{{ route('vendor.update.product.multiimg') }}" enctype="multipart/form-data">
 				@csrf  
 				@foreach($mulImgs as $key => $img)
 				<tr>
