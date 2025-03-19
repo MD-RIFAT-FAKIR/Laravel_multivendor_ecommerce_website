@@ -10,5 +10,9 @@ use App\Models\Slider;
 
 class SliderController extends Controller
 {
-    //
+     //all slider
+     public function AllSlider() {
+        $sliders = Slider::latest()->get();
+        return view('backend.slider.slider_all', compact('sliders'));
+    }
 }

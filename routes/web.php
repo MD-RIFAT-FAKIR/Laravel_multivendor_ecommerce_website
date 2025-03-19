@@ -141,7 +141,7 @@ Route::middleware(['auth','role:admin'])->group(function() {
         Route::get('delete/brand/{id}', 'DeleteBrand')->name('delete.brand');
     });
 
-});
+});//End Backend all brand
 
 //admin category
 Route::middleware(['auth', 'role:admin'])->group(function() {
@@ -160,7 +160,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('delete/category/{id}', 'DeleteCategory')->name('delete.category');
 
     });
-});
+});//End admin category
 
 //admin subcategory
 Route::middleware(['auth', 'role:admin'])->group(function() {
@@ -183,7 +183,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('/subcategory/ajax/{category_id}', 'GetSubcategory');
 
     });
-});
+});//End admin subcategory
 
 
 //Vendor inactive and active all route
@@ -201,33 +201,51 @@ Route::controller(AdminController::class)->group(function() {
     //active vendor disapprove
     Route::post('active/vendor/disapprove' , 'ActiveVendorDisapprove')->name('active.vendor.disapprove');
 
-});
+});//End Vendor inactive and active all route
 
 //Admin product all route
-Route::controller(ProductController::class)->group(function() {
-    //all product
-    Route::get('all/product', 'AllProduct')->name('all.product');
-    //add product
-    Route::get('add/product', 'AddProduct')->name('add.product');
-    //store product
-    Route::post('store/product', 'StoreProduct')->name('store.product');
-    //edit product
-    Route::get('edit/product/{id}', 'EditProduct')->name('edit.product');
-    //update product
-    Route::post('/update/product', 'UpdateProduct')->name('update.product');
-    //update product main thambnail
-    Route::post('update/product/thambnail', 'UpdateProductThambnail')->name('update.product.thambnail');
-    //update product multi imgae
-    Route::post('update/product/multiimg', 'UpdateProductMultiImg')->name('update.product.multiimg');
-    //delete product multi image
-    Route::get('delete/product/multiimg/{id}', 'DeleteProductMultiImg')->name('delete.product.multiimg');
-    //product status active to inactive
-    Route::get('product/inactive/{id}', 'ProductInactive')->name('product.inactive');
-    //product status inactive to active
-    Route::get('product/active/{id}', 'ProductActive')->name('product.active');
-    //delete admin poduct
-    Route::get('delete/product/{id}', 'DeleteProduct')->name('delete.product');
+Route::middleware(['auth', 'role:admin'])->group(function() {
 
+    Route::controller(ProductController::class)->group(function() {
+        //all product
+        Route::get('all/product', 'AllProduct')->name('all.product');
+        //add product
+        Route::get('add/product', 'AddProduct')->name('add.product');
+        //store product
+        Route::post('store/product', 'StoreProduct')->name('store.product');
+        //edit product
+        Route::get('edit/product/{id}', 'EditProduct')->name('edit.product');
+        //update product
+        Route::post('/update/product', 'UpdateProduct')->name('update.product');
+        //update product main thambnail
+        Route::post('update/product/thambnail', 'UpdateProductThambnail')->name('update.product.thambnail');
+        //update product multi imgae
+        Route::post('update/product/multiimg', 'UpdateProductMultiImg')->name('update.product.multiimg');
+        //delete product multi image
+        Route::get('delete/product/multiimg/{id}', 'DeleteProductMultiImg')->name('delete.product.multiimg');
+        //product status active to inactive
+        Route::get('product/inactive/{id}', 'ProductInactive')->name('product.inactive');
+        //product status inactive to active
+        Route::get('product/active/{id}', 'ProductActive')->name('product.active');
+        //delete admin poduct
+        Route::get('delete/product/{id}', 'DeleteProduct')->name('delete.product');
+    });// end Admin product all route
 
+    //Slider all route
+    Route::controller(SliderController::class)->group(function() {
+        //all catecory
+        Route::get('all/slider', 'AllSlider')->name('all.slider');
+        //add category
+        Route::get('add/category', 'AddCategory')->name('add.category');
+        //store category
+        Route::post('store/category', 'StoreCategory')->name('store.category');
+        //edit category
+        Route::get('edit/category/{id}', 'EditCategory')->name('edit.category');
+        //pudate category
+        Route::post('update/category', 'UpdateCategory')->name('update.category');
+        //delete category
+        Route::get('delete/category/{id}', 'DeleteCategory')->name('delete.category');
+
+    });//End Slider all route
 
 });
