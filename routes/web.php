@@ -237,8 +237,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('all/slider', 'AllSlider')->name('all.slider');
         //add slider
         Route::get('add/slider', 'AddSlider')->name('add.slider');
-        //store category
-        Route::post('store/category', 'StoreCategory')->name('store.category');
+        //store slider
+        Route::post('store/slider', 'StoreSlider')->name('store.slider');
         //edit category
         Route::get('edit/category/{id}', 'EditCategory')->name('edit.category');
         //pudate category
