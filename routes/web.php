@@ -92,6 +92,8 @@ Route::middleware(['auth','role:vendor'])->group(function() {
         Route::get('vendor/edit/product/{id}' , 'VendorEditProduct')->name('vendor.edit.product');
         //vendor update product
         Route::post('vendor/update/product', 'VendorUpdateProduct')->name('vendor.update.product');
+        //vendor update product thambnail
+        Route::post('vendor/update/product/thambnail', 'VendorUpdateProductThambnail')->name('vendor.update.product.thambnail');
 
 
 

@@ -161,4 +161,36 @@ class VendorProductController extends Controller
 
     }//end
 
+     //vendor product thambnail img update
+     public function VendorUpdateProductThambnail(Request $request) {
+
+        $pro_id = $request->id;
+        $old_img = $request->old_img;
+
+        $img = $request->file('product_thambnail');
+        $manager = new ImageManager(new Driver());
+        $name_gen = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
+        $img = $manager->read($img);
+        $img = $img->resize(800,800);
+
+        $img->toJpeg(80)->save(base_path('public/upload/products/thambnails/'.$name_gen));
+        $save_url = 'upload/products/thambnails/'.$name_gen;
+
+        if(file_exists($old_img)) {
+            unlink($old_img);
+        }
+
+        Product::findOrFail($pro_id)->update([
+            'product_thambnail' => $save_url,
+            'created_at' => Carbon::now(),
+        ]); 
+
+        $notification = array (
+            'message' => 'Vendor Thambnail Image Updated Successfully',
+            'alert-type' => 'success'
+        );
+    
+        return redirect()->back()->with($notification);
+    }//end
+
 }

@@ -159,7 +159,7 @@
 	<h6 class="mb-0 text-uppercase">Update Main Thambnail Image</h6>
 	<hr>
 	<div class="card-body">
-		<form method="post" action="{{ route('update.product.thambnail') }}" enctype="multipart/form-data">
+		<form method="post" action="{{ route('vendor.update.product.thambnail') }}" enctype="multipart/form-data">
 			@csrf  
 
 			<input type="hidden" name="id" value="{{ $Product->id }}" >
