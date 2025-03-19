@@ -108,4 +108,17 @@ class VendorProductController extends Controller
     
         return redirect()->route('vendor.all.product')->with($notification);
     }//end 
+
+    //vendor edit product
+    public function VendorEditProduct($id) {
+        $mulImgs = MultiImg::where('product_id',$id)->get();
+        $Brands = Brand::latest()->get();
+        $Category = Category::latest()->get();
+        $Subcategory = Subcategor::latest()->get();
+        $Product = Product::findOrFail($id);
+        
+        return view('vendor.backend.product.vendor_product_edit', compact('Brands','Category','Subcategory','Product','mulImgs'));
+
+    }//end
+
 }
