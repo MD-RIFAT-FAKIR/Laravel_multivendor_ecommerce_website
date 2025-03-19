@@ -90,6 +90,11 @@ Route::middleware(['auth','role:vendor'])->group(function() {
         Route::post('vendor/store/product' , 'VendorStoreProduct')->name('vendor.store.product');
         //vendor edit product
         Route::get('vendor/edit/product/{id}' , 'VendorEditProduct')->name('vendor.edit.product');
+        //vendor update product
+        Route::post('vendor/update/product', 'VendorUpdateProduct')->name('vendor.update.product');
+
+
+
          // subcategory automatically load in admin add product page,
         // when category is selected 
         Route::get('/vendor/subcategory/ajax/{category_id}', 'VendorGetSubcategory');

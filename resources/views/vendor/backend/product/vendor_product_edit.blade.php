@@ -24,7 +24,7 @@
 				  <div class="card-body p-4">
 					  <h5 class="card-title">Edit Product</h5>
 					  <hr/>
-					  <form id="myForm" method="post" action="{{ route('update.product') }}" >
+					  <form id="myForm" method="post" action="{{ route('vendor.update.product') }}" >
                             @csrf  
 							
 							<input type="hidden" name="id" value="{{ $Product->id }}">
