@@ -49,4 +49,11 @@ class SliderController extends Controller
 
     }//end
 
+    // edit slider
+    public function EditSlider($id) {
+        $sliders = Slider::findorFail($id);
+
+        return view('backend.slider.slider_edit', compact('sliders'));
+    }//end
+
 }

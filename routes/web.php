@@ -240,7 +240,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //store slider
         Route::post('store/slider', 'StoreSlider')->name('store.slider');
         //edit category
-        Route::get('edit/category/{id}', 'EditCategory')->name('edit.category');
+        Route::get('edit/slider/{id}', 'EditSlider')->name('edit.slider');
         //pudate category
         Route::post('update/category', 'UpdateCategory')->name('update.category');
         //delete category
