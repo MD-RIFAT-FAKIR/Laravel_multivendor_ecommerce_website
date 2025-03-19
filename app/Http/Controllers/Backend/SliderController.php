@@ -14,5 +14,10 @@ class SliderController extends Controller
      public function AllSlider() {
         $sliders = Slider::latest()->get();
         return view('backend.slider.slider_all', compact('sliders'));
+    }//end
+
+    //add slider
+    public function AddSlider() {
+        return view('backend.slider.slider_add');
     }
 }
