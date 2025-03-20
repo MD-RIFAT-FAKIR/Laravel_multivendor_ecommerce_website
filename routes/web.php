@@ -244,7 +244,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //update slider
         Route::post('update/slider', 'UpdateSlider')->name('update.slider');
         //delete category
-        Route::get('delete/category/{id}', 'DeleteCategory')->name('delete.category');
+        Route::get('delete/slider/{id}', 'DeleteSlider')->name('delete.slider');
 
     });//End Slider all route
 
