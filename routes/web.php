@@ -261,7 +261,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //edit banner
         Route::get('edit/banner/{id}', 'EditBanner')->name('edit.banner');
         //update slider
-        Route::post('update/slider', 'UpdateSlider')->name('update.slider');
+        Route::post('update/banner', 'UpdateBanner')->name('update.banner');
         //delete category
         Route::get('delete/slider/{id}', 'DeleteSlider')->name('delete.slider');
 

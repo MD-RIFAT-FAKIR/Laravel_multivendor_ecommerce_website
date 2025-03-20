@@ -23,8 +23,12 @@
             <div class="col-lg-10">
                 <div class="card">
                     <div class="card-body">
-                        <form id="myForm" method="post" action="{{ route('store.banner') }}" enctype="multipart/form-data" >
-                            @csrf       
+                        <form id="myForm" method="post" action="{{ route('update.banner') }}" enctype="multipart/form-data" >
+                            @csrf   
+                            
+                                <input type="hidden" name="id" value="{{ $banner->id }}">
+                                <input type="hidden" name="old_img" value="{{ $banner->banner_image }}">
+
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Banner Title</h6>

@@ -55,4 +55,52 @@ class BannerController extends Controller
 
         return view('backend.banner.banner_edit', compact('banner'));
     }//end
+
+     //update slider
+     public function UpdateBanner(Request $request) {
+        $id = $request->id;
+        $old_img = $request->old_img;
+
+        if($request->file('banner_image')) {
+            $manager = new ImageManager(new Driver());
+            $name_gen = hexdec(uniqid()).'.'.$request->file('banner_image')->getClientOriginalExtension();
+            $img = $manager->read($request->file('banner_image'));
+            $img = $img->resize(768,450);
+
+            //unlink old_image
+            if(file_exists($old_img)) {
+                unlink($old_img);
+            }
+
+            $img = $img->toJpeg(80)->save(base_path('public/upload/banner/'.$name_gen));
+            $save_url = 'upload/banner/'.$name_gen;
+
+            Banner::findorFail($id)->update([
+                'banner_title' => $request->banner_title,
+                'banner_url' => $request->banner_url,
+                'banner_image' => $save_url
+            ]);
+            
+            $notification = array(
+                'message' => 'Banner Edited With Image Successfully',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('all.banner')->with($notification);
+
+        //end if
+        } else {
+            Banner::findorFail($id)->update([
+                'banner_title' => $request->banner_title,
+                'banner_url' => $request->banner_url
+            ]);
+            
+            $notification = array(
+                'message' => 'Banner Edited Without Image Successfully',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('all.banner')->with($notification);
+        }//end else
+    }//end slider update
 }
