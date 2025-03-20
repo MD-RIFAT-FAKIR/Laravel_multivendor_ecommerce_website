@@ -239,10 +239,10 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('add/slider', 'AddSlider')->name('add.slider');
         //store slider
         Route::post('store/slider', 'StoreSlider')->name('store.slider');
-        //edit category
+        //edit slider
         Route::get('edit/slider/{id}', 'EditSlider')->name('edit.slider');
-        //pudate category
-        Route::post('update/category', 'UpdateCategory')->name('update.category');
+        //update slider
+        Route::post('update/slider', 'UpdateSlider')->name('update.slider');
         //delete category
         Route::get('delete/category/{id}', 'DeleteCategory')->name('delete.category');
 
