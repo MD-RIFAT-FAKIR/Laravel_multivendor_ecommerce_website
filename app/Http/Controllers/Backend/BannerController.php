@@ -48,4 +48,11 @@ class BannerController extends Controller
         return redirect()->route('all.banner')->with($notification);
 
     }//end
+
+    // edit banner
+    public function EditBanner($id) {
+        $banner = Banner::findorFail($id);
+
+        return view('backend.banner.banner_edit', compact('banner'));
+    }//end
 }
