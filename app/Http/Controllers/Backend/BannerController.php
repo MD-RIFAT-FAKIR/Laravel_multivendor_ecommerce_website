@@ -56,7 +56,7 @@ class BannerController extends Controller
         return view('backend.banner.banner_edit', compact('banner'));
     }//end
 
-     //update slider
+     //update banner
      public function UpdateBanner(Request $request) {
         $id = $request->id;
         $old_img = $request->old_img;
@@ -102,5 +102,21 @@ class BannerController extends Controller
 
             return redirect()->route('all.banner')->with($notification);
         }//end else
-    }//end slider update
+    }//end banner update
+
+     //delete banner
+     public function DeleteBanner($id) {
+        $banner = Banner::findOrFail($id);
+        $img = $banner->banner_image;
+        unlink($img);
+
+        Banner::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Banner Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }//end delete banner
 }

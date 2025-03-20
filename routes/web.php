@@ -260,11 +260,11 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::post('store/banner', 'StoreBanner')->name('store.banner');
         //edit banner
         Route::get('edit/banner/{id}', 'EditBanner')->name('edit.banner');
-        //update slider
+        //update banner
         Route::post('update/banner', 'UpdateBanner')->name('update.banner');
-        //delete category
-        Route::get('delete/slider/{id}', 'DeleteSlider')->name('delete.slider');
+        //delete banner
+        Route::get('delete/banner/{id}', 'DeleteBanner')->name('delete.banner');
 
-    });//End Slider all route
+    });//End banner all route
 
 });
