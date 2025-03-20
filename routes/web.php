@@ -249,4 +249,22 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 
     });//End Slider all route
 
+
+    //banner all route
+    Route::controller(BannerController::class)->group(function() {
+        //all slider
+        Route::get('all/banner', 'AllBanner')->name('all.banner');
+        //add slider
+        Route::get('add/slider', 'AddSlider')->name('add.slider');
+        //store slider
+        Route::post('store/slider', 'StoreSlider')->name('store.slider');
+        //edit slider
+        Route::get('edit/slider/{id}', 'EditSlider')->name('edit.slider');
+        //update slider
+        Route::post('update/slider', 'UpdateSlider')->name('update.slider');
+        //delete category
+        Route::get('delete/slider/{id}', 'DeleteSlider')->name('delete.slider');
+
+    });//End Slider all route
+
 });

@@ -10,5 +10,9 @@ use App\Models\Banner;
 
 class BannerController extends Controller
 {
-    //
+     //all banner
+     public function AllBanner() {
+        $banner = Banner::latest()->get();
+        return view('backend.banner.banner_all', compact('banner'));
+    }//end
 }
