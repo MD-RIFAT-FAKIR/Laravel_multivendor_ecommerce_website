@@ -256,8 +256,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('all/banner', 'AllBanner')->name('all.banner');
         //add banner
         Route::get('add/banner', 'AddBanner')->name('add.banner');
-        //store slider
-        Route::post('store/slider', 'StoreSlider')->name('store.slider');
+        //store banner
+        Route::post('store/banner', 'StoreBanner')->name('store.banner');
         //edit slider
         Route::get('edit/slider/{id}', 'EditSlider')->name('edit.slider');
         //update slider
