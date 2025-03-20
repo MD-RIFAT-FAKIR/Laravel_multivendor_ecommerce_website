@@ -15,4 +15,9 @@ class BannerController extends Controller
         $banner = Banner::latest()->get();
         return view('backend.banner.banner_all', compact('banner'));
     }//end
+
+    //add banner
+    public function AddBanner() {
+        return view('backend.banner.banner_add');
+    }
 }
