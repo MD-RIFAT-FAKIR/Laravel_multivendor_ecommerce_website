@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\BannerController;
 
 
 /*
