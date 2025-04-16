@@ -17,6 +17,8 @@ use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\BannerController;
 
+use App\Http\Controllers\Frontend\IndexController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -268,3 +270,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     });//End banner all route
 
 });
+
+
+//frontend product details all route
+Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
