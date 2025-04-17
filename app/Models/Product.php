@@ -19,4 +19,15 @@ class Product extends Model
     public function category () {
         return $this->belongsTo(Category::class,'category_id','id');
     }
+
+    //relation between brand and product
+    public function brand () {
+        return $this->belongsTo(Brand::class,'brand_id','id');
+    }
+
+    //relationship between subcategory and product
+    public function subcategory () {
+        return $this->belongsTo(Subcategor::class,'subcategory_id','id');
+    }
 }
+
