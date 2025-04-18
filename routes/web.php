@@ -31,9 +31,11 @@ use App\Http\Controllers\Frontend\IndexController;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+// Route::get('/', function () {
+//     return view('frontend.index');
+// });
+//index route
+Route::get('/', [IndexController::class, 'Index']);
 
 //user dashboard
 Route::middleware(['auth'])->group(function() {
