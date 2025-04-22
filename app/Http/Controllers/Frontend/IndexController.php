@@ -51,5 +51,13 @@ class IndexController extends Controller
         $related_product = Product::where('category_id',$cat_id)->where('id','!=',$id)->orderBy('id','DESC')->limit(4)->get();
 
         return view('frontend.product.product_details', compact('product','product_size','product_color','multiImg','related_product'));
+    }//end 
+
+    //frontend vendor details
+    public function VendorDetails($id) {
+        $vendor = User::findOrFail($id);
+        $vendor_product = Product::where('vendor_id', $id)->get();
+
+        return view('frontend.vendor.vendor_details', compact('vendor','vendor_product'));
     }
 }
