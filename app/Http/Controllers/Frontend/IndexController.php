@@ -59,5 +59,12 @@ class IndexController extends Controller
         $vendor_product = Product::where('vendor_id', $id)->get();
 
         return view('frontend.vendor.vendor_details', compact('vendor','vendor_product'));
+    }//end
+
+    //all vendor list
+    public function VendorAll() {
+        $vendors = User::where('role','vendor')->where('status','active')->orderBy('id','DESC')->get();
+
+        return view('frontend.vendor.vendor_all', compact('vendors'));
     }
 }

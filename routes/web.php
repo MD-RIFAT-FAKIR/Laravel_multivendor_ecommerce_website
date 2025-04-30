@@ -279,3 +279,6 @@ Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDeta
 
 //frontend vendor details all route
 Route::get('/vendor/details/{id}', [IndexController::class, 'VendorDetails'])->name('vendor.details');
+
+//frontend all vendor list
+Route::get('vendor/all', [IndexController::class, 'VendorAll'])->name('vendor.all');
