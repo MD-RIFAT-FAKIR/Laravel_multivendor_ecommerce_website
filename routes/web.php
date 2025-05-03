@@ -282,3 +282,6 @@ Route::get('/vendor/details/{id}', [IndexController::class, 'VendorDetails'])->n
 
 //frontend all vendor list
 Route::get('vendor/all', [IndexController::class, 'VendorAll'])->name('vendor.all');
+
+//frontend categorywise product display
+Route::get('product/category/{id}/{slug}', [IndexController::class, 'CatwiseProduct']);
