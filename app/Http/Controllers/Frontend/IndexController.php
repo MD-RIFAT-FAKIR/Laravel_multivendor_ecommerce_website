@@ -79,4 +79,16 @@ class IndexController extends Controller
         return view('frontend.product.category_view', compact('products', 'categories', 'breadcat', 'newProduct'));
 
     }
+
+    //frontend subcategory wise porduct display
+    public function SubCatwiseProduct (Request $request,$id,$slug) {
+        $products = Product::where('status',1)->where('subcategory_id',$id)->orderBy('id','DESC')->get();
+        $categories = Category::orderBy('category_name','ASC')->get();
+
+        $breadsubcat = Subcategor::where('id',$id)->first();
+        $newProduct = Product::orderBy('id','DESC')->limit(3)->get();
+
+        return view('frontend.product.subcategory_view', compact('products', 'categories', 'breadsubcat', 'newProduct'));
+
+    }
 }

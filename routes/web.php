@@ -285,3 +285,6 @@ Route::get('vendor/all', [IndexController::class, 'VendorAll'])->name('vendor.al
 
 //frontend categorywise product display
 Route::get('product/category/{id}/{slug}', [IndexController::class, 'CatwiseProduct']);
+
+//frontend subcategory wise product display
+Route::get('product/subcategory/{id}/{slug}', [IndexController::class, 'SubCatwiseProduct']);

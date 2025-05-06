@@ -7,7 +7,6 @@
                 <div class="section-title">
                     <div class="title">
                         <h3>Featured Categories</h3>
-                       
                     </div>
                     <div class="slider-arrow slider-arrow-2 flex-right carausel-10-columns-arrow" id="carausel-10-columns-arrows"></div>
                 </div>
