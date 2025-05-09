@@ -288,3 +288,6 @@ Route::get('product/category/{id}/{slug}', [IndexController::class, 'CatwiseProd
 
 //frontend subcategory wise product display
 Route::get('product/subcategory/{id}/{slug}', [IndexController::class, 'SubCatwiseProduct']);
+
+//product quick view modal 
+Route::get('/product/view/modal/{id}' , [IndexController::class, 'productViewAjax']);

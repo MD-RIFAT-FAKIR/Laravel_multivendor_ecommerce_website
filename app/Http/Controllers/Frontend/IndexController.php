@@ -78,7 +78,7 @@ class IndexController extends Controller
 
         return view('frontend.product.category_view', compact('products', 'categories', 'breadcat', 'newProduct'));
 
-    }
+    }//end
 
     //frontend subcategory wise porduct display
     public function SubCatwiseProduct (Request $request,$id,$slug) {
@@ -90,5 +90,23 @@ class IndexController extends Controller
 
         return view('frontend.product.subcategory_view', compact('products', 'categories', 'breadsubcat', 'newProduct'));
 
+    }//end
+
+    //product quick view modal
+    public function productViewAjax ($id) {
+        $product = Product::with('category','brand')->findOrFail($id);
+
+        $size = $product->product_size;
+        $product_size = explode(',',$size);
+
+        $color = $product->product_color;
+        $product_color = explode(',',$color);
+
+        return response()->json(array(
+            'product' => $product,
+            'size' => $product_size,
+            'color' => $product_color
+        ));
     }
 }
+
