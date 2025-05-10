@@ -118,6 +118,29 @@
                         $('#stockout').text('');
                         $('#stockout').text('Stockout');
                     }//end if
+
+                    //product color
+                    $('select[name="color"]').empty();
+                    $.each(data.color,function(key,value){
+                        $('select[name="color"]').append('<option value="'+value+' ">'+value+'  </option')
+                        if (data.color == "") {
+                            $('#colorArea').hide();
+                        }else{
+                            $('#colorArea').show();
+                        }
+                    })//end color
+
+                    //product size
+                    $('select[name="size"]').empty();
+                    $.each(data.size,function(key,value){
+                        $('select[name="size"]').append('<option value="'+value+' ">'+value+'  </option')
+                        if (data.size == "") {
+                            $('#sizeArea').hide();
+                        }else{
+                            $('#sizeArea').show();
+                        }
+                    })//end size
+                    
                 }
             });
         }

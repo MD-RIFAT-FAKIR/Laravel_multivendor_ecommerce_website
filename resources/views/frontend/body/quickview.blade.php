@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="attr-detail attr-size mb-30" id="sizeArea">
                                     <strong class="mr-10" style="width: 60px;">Size : </strong>
-                                    <select class="form-control unicase-form-control" id="color" name="color">
+                                    <select class="form-control unicase-form-control" id="size" name="size">
                                         
                                     </select>
                                 </div>
