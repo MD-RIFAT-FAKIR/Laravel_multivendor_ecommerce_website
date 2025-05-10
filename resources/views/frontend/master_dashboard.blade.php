@@ -89,7 +89,35 @@
                 url: '/product/view/modal/' + id,
                 dataType: 'json',
                 success: function(data) {
-                    console.log(data)
+                    console.log(data);
+                    $('#pname').text(data.product.product_name);
+                    $('#pprice').text(data.product.selling_price);
+                    $('#pbrand').text(data.product.brand.brand_name);
+                    $('#pcategory').text(data.product.category.category_name);
+                    $('#pcode').text(data.product.product_code);
+                    $('#pimage').attr('src' , '/' + data.product.product_thambnail);
+
+                    //product price
+                    if(data.product.discount_price == null) {
+                        $('#pprice').text('');
+                        $('#oldprice').text('');
+                        $('#pprice').text(data.product.selling_price);
+
+                    }else{
+                        $('#pprice').text(data.product.discount_price);
+                        $('#oldprice').text(data.product.selling_price);
+                    }//end if
+
+                    //product quantity
+                    if(data.product.product_qty > 0) {
+                        $('#available').text('');
+                        $('#stockout').text('');
+                        $('#available').text('Available');
+                    }else{
+                        $('#available').text('');
+                        $('#stockout').text('');
+                        $('#stockout').text('Stockout');
+                    }//end if
                 }
             });
         }

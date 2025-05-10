@@ -48,7 +48,7 @@
                                     <div class="col-md-6">
                                         <div class="font-xs">
                                             <ul>
-                                                <li class="mb-5">Brand: <span class="text-brand" id="pbran"> </span></li>
+                                                <li class="mb-5">Brand: <span class="text-brand" id="pbrand"> </span></li>
                                                 <li class="mb-5">Category:<span class="text-brand" id="pcategory"> </span></li>
                                             </ul>
                                         </div>
