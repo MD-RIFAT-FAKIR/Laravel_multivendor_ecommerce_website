@@ -188,7 +188,19 @@
                 }
             });
         }
+    </script>
 
+    <script type="text/javascript">
+        function miniCart() {
+            $.ajax({
+                type: 'GET',
+                dataType: 'json',
+                url: '/product/mini/cart',
+                success: function(response) {
+                    console.log(response);
+                }
+            });
+        }
     </script>
 
 </body>
