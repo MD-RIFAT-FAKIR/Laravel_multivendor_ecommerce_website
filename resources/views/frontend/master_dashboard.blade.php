@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <!-- meta for ajaxSetup -->
-     <meta name="crsf-token" content="{{ csrf_token() }}"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:title" content="" />
     <meta property="og:type" content="" />
@@ -89,13 +89,14 @@
                 url: '/product/view/modal/' + id,
                 dataType: 'json',
                 success: function(data) {
-                    console.log(data);
                     $('#pname').text(data.product.product_name);
                     $('#pprice').text(data.product.selling_price);
                     $('#pbrand').text(data.product.brand.brand_name);
                     $('#pcategory').text(data.product.category.category_name);
                     $('#pcode').text(data.product.product_code);
                     $('#pimage').attr('src' , '/' + data.product.product_thambnail);
+                    $('#product_id').val(id);
+                    $('#qty').val(1);
 
                     //product price
                     if(data.product.discount_price == null) {
@@ -143,7 +144,29 @@
                     
                 }
             });
+        }//end product view
+
+        //start product add to cart
+        function addToCart() {
+            var product_name = $('#pname').text();
+            var id = $('#product_id').val();
+            var color = $('#color option:selected').text();
+            var size = $('#size option:selected').text();
+            var quantity = $('#qty').val();
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                data:{
+                    product_name:product_name, color:color, size:size, quantity:quantity
+                },
+                url:"/cart/data/store/"+ id,
+                success:function(data) {
+                    $('#closeModal').click();
+                    console.log(data);
+                }
+            });
         }
+
     </script>
 
 </body>

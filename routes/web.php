@@ -292,3 +292,6 @@ Route::get('product/subcategory/{id}/{slug}', [IndexController::class, 'SubCatwi
 
 //product quick view modal 
 Route::get('/product/view/modal/{id}' , [IndexController::class, 'productViewAjax']);
+
+//cart data store uinsg ajax
+Route::post('/cart/data/store/{id}', [CartController::class, 'addToCart']);
