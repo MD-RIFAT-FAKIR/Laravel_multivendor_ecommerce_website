@@ -163,6 +163,7 @@
                 },
                 url:"/cart/data/store/"+ id,
                 success:function(data) {
+                    miniCart();
                     $('#closeModal').click();
 
                     //sweet alart
@@ -197,10 +198,37 @@
                 dataType: 'json',
                 url: '/product/mini/cart',
                 success: function(response) {
-                    console.log(response);
+                    $('#cartQty').text(response.cartQty);
+                    $('#cartSubTotal').text(response.cartTotal);
+
+                    var miniCart = "";
+
+                    $.each(response.carts, function(key, value) {
+                        miniCart += `
+                        <ul>
+                            <li>
+                                <div class="shopping-cart-img">
+                                    <a href="shop-product-right.html"><img alt="Nest" src="/${value.options.image} " style="width:50px;height:50px;" /></a>
+                                </div>
+                                <div class="shopping-cart-title" style="margin: -73px 74px 14px; width" 146px;>
+                                    <h4><a href="shop-product-right.html"> ${value.name} </a></h4>
+                                    <h4><span>${value.qty} × </span>${value.price}</h4>
+                                </div>
+                                <div class="shopping-cart-delete" style="margin: -85px 1px 0px;">
+                                    <a href="#"><i class="fi-rs-cross-small"></i></a>
+                                </div>
+                            </li> 
+                        </ul>
+                        <hr><br>
+
+                        `
+                    });
+
+                    $('#miniCart').html(miniCart);
                 }
             });
         }
+        miniCart();
     </script>
 
 </body>
