@@ -309,3 +309,10 @@ Route::post('/dcart/data/store/{id}', [CartController::class, 'AddToCartDetails'
 
 //add to wishlist
 Route::post('/add-to-wishlist/{product_id}', [WishlistConrtoller::class, 'addToWishlist']);
+
+//user all route
+    Route::middleware(['auth','role:user'])->group(function() {
+        Route::controller(WishlistConrtoller::class)->group(function() {
+            Route::get('/wishlist', 'AllWishlist')->name('wishlist');
+        });
+    });

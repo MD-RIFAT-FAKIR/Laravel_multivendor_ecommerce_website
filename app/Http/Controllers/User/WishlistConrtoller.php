@@ -27,5 +27,10 @@ class WishlistConrtoller extends Controller
         }else{
             return response()->json(['error' => 'At First Login Your Acount']);
         }
+    }//end product add to wishlist
+
+    //wishlist page
+    public function AllWishlist() {
+        return view('frontend.wishlist.view_wishlist');
     }
 }
