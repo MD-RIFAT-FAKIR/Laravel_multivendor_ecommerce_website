@@ -57,5 +57,12 @@ class CartController extends Controller
             'cartTotal' => $cartTotal,
         ));
 
+    }//end
+
+    //remove product mini cart
+    public function RemoveMiniCart($rowId) {
+        Cart::remove($rowId);
+
+        return response()->json(['success' => 'Product Remove From Cart']);
     }
 }
