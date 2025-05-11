@@ -301,3 +301,6 @@ Route::get('/product/mini/cart' , [CartController::class, 'AddMiniCart']);
 
 //remove product mini cart 
 Route::get('/minicart/product/remove/{rowId}' , [CartController::class, 'RemoveMiniCart']);
+
+//add to cart from details page
+Route::post('/dcart/data/store/{id}', [CartController::class, 'AddToCartDetails']);
