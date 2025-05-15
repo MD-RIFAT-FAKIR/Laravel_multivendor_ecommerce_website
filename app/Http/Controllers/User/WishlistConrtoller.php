@@ -32,5 +32,13 @@ class WishlistConrtoller extends Controller
     //wishlist page
     public function AllWishlist() {
         return view('frontend.wishlist.view_wishlist');
+    }//end
+
+    //load wishlist product data
+    public function GetWishlistProduct() {
+        $wishlist = Wishlist::with('product')->where('product_id',Auth::id())->latest()->get();
+        $wishlistQty = wishlist::count();
+
+        return resposne()->json(['wishlist' => $wishlist, 'wishlistQty' => $wishlistQty]);
     }
 }

@@ -343,6 +343,23 @@
         </script>
     <!-- end product add to wishlist -->
 
+    <!-- load wishlist  data-->
+        <script type="text/javascript">
+
+            function Wishlist() {
+                $.ajax({
+                    type: 'GET',
+                    url: '/get-wishlist-product/',
+                    dataType: 'json',
+                    success: function(response) {
+                        
+                    }
+                });
+            }
+
+        </script>
+    <!-- end load wishlist  data-->
+
 
 </body>
 
