@@ -315,6 +315,7 @@
                     url: '/add-to-wishlist/' + product_id,
                     dataType: 'json',
                     success: function(data) {
+                        Wishlist()
                         //sweet alart
                         const Toast = swal.mixin({
                             toast: true,
@@ -352,7 +353,7 @@
                     url: '/get-wishlist-product/',
                     dataType: 'json',
                     success: function(response) {
-
+                        $('#wishlistQty').text(response.wishlistQty);
                         var rows = "";
 
                         $.each(response.wishlist, function(key, value){
@@ -389,7 +390,7 @@
                                         
                                     </td>
                                     <td class="action text-center" data-title="Remove">
-                                        <a href="#" class="text-body"><i class="fi-rs-trash"></i></a>
+                                        <a id="${value.id}" class="text-body" onclick="wishlistRemove(this.id)"><i class="fi-rs-trash"></i></a>
                                     </td>
                                 </tr> 
                             `
@@ -400,9 +401,47 @@
             }
 
             Wishlist();
+            // <-- end load wishlist  data-->
+
+            //wishlist remove
+
+             function wishlistRemove(id) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/wishlist-remove/' + id,
+                    dataType: 'json',
+                    success: function(data) {
+                        Wishlist() //update list
+                        //sweet alart
+                        const Toast = swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+
+                        if($.isEmptyObject(data.error)) {
+                            Toast.fire({
+                                type: 'success',
+                                icon: "success",
+                                title: data.success
+                            });
+                        }else{
+                            Toast.fire({
+                                type: 'error',
+                                icon: "error",
+                                title: data.error
+                            })
+                        }
+                    }
+                });
+            }
+
+            //wishlist remove end
+
 
         </script>
-    <!-- end load wishlist  data-->
+    
 
 
 </body>

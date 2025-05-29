@@ -314,7 +314,9 @@ Route::post('/add-to-wishlist/{product_id}', [WishlistConrtoller::class, 'addToW
     Route::middleware(['auth','role:user'])->group(function() {
         Route::controller(WishlistConrtoller::class)->group(function() {
             Route::get('/wishlist', 'AllWishlist')->name('wishlist');
-            
+            //get product
             Route::get('/get-wishlist-product', 'GetWishlistProduct');
+            //remove product
+            Route::get('/wishlist-remove/{id}', 'WishlistProductRemove');
         });
     });
