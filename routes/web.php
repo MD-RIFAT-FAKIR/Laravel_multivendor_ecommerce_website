@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistConrtoller;
+use App\Http\Controllers\User\CompareController;
 
 
 
@@ -309,6 +310,8 @@ Route::post('/dcart/data/store/{id}', [CartController::class, 'AddToCartDetails'
 
 //add to wishlist
 Route::post('/add-to-wishlist/{product_id}', [WishlistConrtoller::class, 'addToWishlist']);
+/// Add to Compare 
+Route::post('/add-to-compare/{product_id}', [CompareController::class, 'AddToCompare']);
 
 //user all route
     Route::middleware(['auth','role:user'])->group(function() {

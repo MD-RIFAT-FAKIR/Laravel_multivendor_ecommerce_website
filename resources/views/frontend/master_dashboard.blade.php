@@ -340,7 +340,6 @@
                     }
                 });
             }
-
         </script>
     <!-- end product add to wishlist -->
 
@@ -437,10 +436,46 @@
                 });
             }
 
-            //wishlist remove end
-
-
+        //wishlist remove end
         </script>
+
+
+        <!-- product add to wishlist -->
+        <script type="text/javascript">
+
+            function addToCompare(product_id) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/add-to-compare/' + product_id,
+                    dataType: 'json',
+                    success: function(data) {
+                        //sweet alart
+                        const Toast = swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+
+                        if($.isEmptyObject(data.error)) {
+                            Toast.fire({
+                                type: 'success',
+                                icon: "success",
+                                title: data.success
+                            });
+                        }else{
+                            Toast.fire({
+                                type: 'error',
+                                icon: "error",
+                                title: data.error
+                            })
+                        }
+                    }
+                });
+            }
+        </script>
+    <!-- end product add to wishlist -->
+
     
 
 
