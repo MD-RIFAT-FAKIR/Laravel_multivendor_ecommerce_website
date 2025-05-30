@@ -313,7 +313,7 @@ Route::post('/add-to-wishlist/{product_id}', [WishlistConrtoller::class, 'addToW
 /// Add to Compare 
 Route::post('/add-to-compare/{product_id}', [CompareController::class, 'AddToCompare']);
 
-//user all route
+    //wishlist all route
     Route::middleware(['auth','role:user'])->group(function() {
         Route::controller(WishlistConrtoller::class)->group(function() {
             Route::get('/wishlist', 'AllWishlist')->name('wishlist');
@@ -321,5 +321,12 @@ Route::post('/add-to-compare/{product_id}', [CompareController::class, 'AddToCom
             Route::get('/get-wishlist-product', 'GetWishlistProduct');
             //remove product
             Route::get('/wishlist-remove/{id}', 'WishlistProductRemove');
+        });
+    });
+
+    //Compare all route
+    Route::middleware(['auth','role:user'])->group(function() {
+        Route::controller(CompareController::class)->group(function() {
+            Route::get('/compare', 'AllCompare')->name('compare');
         });
     });
