@@ -330,5 +330,7 @@ Route::post('/add-to-compare/{product_id}', [CompareController::class, 'AddToCom
             Route::get('/compare', 'AllCompare')->name('compare');
             //get product
             Route::get('/get-compare-product', 'GetCompareProduct');
+            //remove compare product
+            Route::get('/compare-remove/{id}', 'CompareProductRemove');
         });
     });

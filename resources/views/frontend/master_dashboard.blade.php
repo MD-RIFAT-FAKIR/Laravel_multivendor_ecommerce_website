@@ -476,7 +476,7 @@
         </script>
     <!-- end product add to wishlist -->
 
-    <!-- load wishlist  data-->
+    <!-- load compare  data-->
     <script type="text/javascript">
 
         function compare() {
@@ -528,7 +528,7 @@
                                 <tr class="pr_remove text-muted">
                                     <td class="text-muted font-md fw-600"></td>
                                     <td class="row_remove">
-                                        <a href="#" class="text-muted"><i class="fi-rs-trash mr-5"></i><span>Remove</span> </a>
+                                        <a type="submit" id=${value.id} class="text-muted" onclick="compareRemove(this.id)"><i class="fi-rs-trash mr-5"></i><span>Remove</span> </a>
                                     </td>
                                 </tr>
                         `
@@ -539,8 +539,46 @@
         }
 
         compare();
+        //end load campare data
+
+        //comparelist remove
+
+             function compareRemove(id) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/compare-remove/' + id,
+                    dataType: 'json',
+                    success: function(data) {
+                        compare() //update list
+                        //sweet alart
+                        const Toast = swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+
+                        if($.isEmptyObject(data.error)) {
+                            Toast.fire({
+                                type: 'success',
+                                icon: "success",
+                                title: data.success
+                            });
+                        }else{
+                            Toast.fire({
+                                type: 'error',
+                                icon: "error",
+                                title: data.error
+                            })
+                        }
+                    }
+                });
+            }
+
+        //comparelist remove end
+
         </script>
-        // <-- end load wishlist  data
+        
 
     
 
