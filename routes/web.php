@@ -328,5 +328,7 @@ Route::post('/add-to-compare/{product_id}', [CompareController::class, 'AddToCom
     Route::middleware(['auth','role:user'])->group(function() {
         Route::controller(CompareController::class)->group(function() {
             Route::get('/compare', 'AllCompare')->name('compare');
+            //get product
+            Route::get('/get-compare-product', 'GetCompareProduct');
         });
     });
