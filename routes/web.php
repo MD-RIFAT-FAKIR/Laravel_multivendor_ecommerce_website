@@ -334,3 +334,10 @@ Route::post('/add-to-compare/{product_id}', [CompareController::class, 'AddToCom
             Route::get('/compare-remove/{id}', 'CompareProductRemove');
         });
     });
+
+    //cart all route
+    Route::middleware(['auth','role:user'])->group(function() {
+        Route::controller(CartController::class)->group(function() {
+            Route::get('/mycart', 'MyCart')->name('mycart');
+        });
+    });
