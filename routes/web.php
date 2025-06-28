@@ -341,5 +341,7 @@ Route::post('/add-to-compare/{product_id}', [CompareController::class, 'AddToCom
             Route::get('/mycart', 'MyCart')->name('mycart');
             Route::get('/get-cart-product', 'GetMyCart');
             Route::get('/cart-remove/{id}', 'CartRemove');
+            //decrement product quantiry
+            Route::get('/decrement-cart/{rowId}', 'DecrementCart');
         });
     });
