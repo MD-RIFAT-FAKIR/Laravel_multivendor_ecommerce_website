@@ -340,5 +340,6 @@ Route::post('/add-to-compare/{product_id}', [CompareController::class, 'AddToCom
         Route::controller(CartController::class)->group(function() {
             Route::get('/mycart', 'MyCart')->name('mycart');
             Route::get('/get-cart-product', 'GetMyCart');
+            Route::get('/cart-remove/{id}', 'CartRemove');
         });
     });

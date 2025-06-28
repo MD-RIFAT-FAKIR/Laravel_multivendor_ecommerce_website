@@ -623,7 +623,8 @@
                                     <td class="price" data-title="Price">
                                         <h4 class="text-brand">$${value.subtotal}</h4>
                                     </td>
-                                    <td class="action text-center" data-title="Remove"><a href="#" class="text-body"><i class="fi-rs-trash"></i></a></td>
+                                    <td class="action text-center" data-title="Remove"><a 
+                                    type="submit" id="${value.rowId}" class="text-body" onclick="cartRemove(this.id)"><i class="fi-rs-trash"></i></a></td>
                                 </tr>`
                     });
 
@@ -634,6 +635,47 @@
         cart();
     </script>
     <!-- end load my cart data -->
+
+
+    <!-- remove product from mycart page -->
+     <script type="text/javascript">
+
+            function cartRemove(id) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/cart-remove/' + id,
+                    dataType: 'json',
+                    success: function(data) {
+                        cart();
+                        miniCart();
+                        //sweet alart
+                        const Toast = swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+
+                        if($.isEmptyObject(data.error)) {
+                            Toast.fire({
+                                type: 'success',
+                                icon: "success",
+                                title: data.success
+                            });
+                        }else{
+                            Toast.fire({
+                                type: 'error',
+                                icon: "error",
+                                title: data.error
+                            })
+                        }
+                    }
+                });
+            }
+        </script>
+
+    <!-- End remove product from mycart page -->
+
 
 </body>
 
