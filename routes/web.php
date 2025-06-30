@@ -361,8 +361,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('add/coupon' , 'AddCoupon')->name('add.coupon');
         //store coupon
         Route::post('store/coupon' , 'StoreCoupon')->name('store.coupon');
-        //edit subcategory
-        Route::get('edit/subcategory/{id}', 'EditSubcategory')->name('edit.subcategory');
+        //edit coupon
+        Route::get('edit/coupon/{id}', 'EditCoupon')->name('edit.coupon');
         //update subcategory
         Route::post('update/subcategory', 'UpdateSubcategory')->name('update.subcategory');
         //delete subcategory
