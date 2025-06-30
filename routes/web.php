@@ -363,8 +363,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::post('store/coupon' , 'StoreCoupon')->name('store.coupon');
         //edit coupon
         Route::get('edit/coupon/{id}', 'EditCoupon')->name('edit.coupon');
-        //update subcategory
-        Route::post('update/subcategory', 'UpdateSubcategory')->name('update.subcategory');
+        //update coupon
+        Route::post('update/coupon', 'UpdateCoupon')->name('update.coupon');
         //delete subcategory
         Route::get('delete/subcategory/{id}', 'DeleteSubcategory')->name('delete.subcategory');
         // subcategory automatically load in admin add product page,

@@ -22,7 +22,7 @@ class CouponController extends Controller
 
     public function StoreCoupon(Request $request) {
         Coupon::insert([
-            'coupon_name' => $request->coupon_name,
+            'coupon_name' => strtoupper($request->coupon_name),
             'coupon_discount' => $request->coupon_discount,
             'coupon_validity' => $request->coupon_validity,
             'created_at' => Carbon::now(),
@@ -42,5 +42,25 @@ class CouponController extends Controller
         $coupon = Coupon::findOrFail($id);
 
         return view('backend.coupon.coupon_edit', compact('coupon'));
+    }//end
+
+    //update coupon
+    public function UpdateCoupon(Request $request) {
+        $coupon_id = $request->id;
+
+        Coupon::findOrFail($coupon_id)->update([
+            'coupon_name' => strtoupper($request->coupon_name),
+            'coupon_discount' => $request->coupon_discount,
+            'coupon_validity' => $request->coupon_validity,
+            'created_at' => Carbon::now(),
+        ]);
+
+        $notification = array (
+            'message' => 'Coupon Inserted Successfully',
+            'alert-type' => 'success'
+        );
+    
+        return redirect()->route('all.coupon')->with($notification);
+
     }
 }
