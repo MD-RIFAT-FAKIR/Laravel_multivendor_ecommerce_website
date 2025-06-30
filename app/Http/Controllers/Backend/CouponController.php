@@ -13,4 +13,9 @@ class CouponController extends Controller
         $coupon = Coupon::latest()->get();
         return view('backend.coupon.coupon_all', compact('coupon'));
     }//end
+
+    //add coupon
+    public function AddCoupon() {
+        return view('backend.coupon.coupon_add');
+    }
 }
