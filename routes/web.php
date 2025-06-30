@@ -22,6 +22,8 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistConrtoller;
 use App\Http\Controllers\User\CompareController;
 
+use App\Http\Controllers\Backend\CouponController;
+
 
 
 /*
