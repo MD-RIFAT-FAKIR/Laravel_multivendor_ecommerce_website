@@ -349,3 +349,27 @@ Route::post('/add-to-compare/{product_id}', [CompareController::class, 'AddToCom
             Route::get('/increment-cart/{rowId}', 'IncrementCart');
         });
     });
+
+
+//coupn system all route
+Route::middleware(['auth', 'role:admin'])->group(function() {
+    
+    Route::controller(CouponController::class)->group(function() {
+        //all coupon
+        Route::get('all/coupon', 'AllCoupon')->name('all.coupon');
+        //add subcategories
+        Route::get('add/subcategory' , 'AddSubcategory')->name('add.subcategory');
+        //store subcategory
+        Route::post('store/subcategory' , 'StoreSubcategory')->name('store.subcategory');
+        //edit subcategory
+        Route::get('edit/subcategory/{id}', 'EditSubcategory')->name('edit.subcategory');
+        //update subcategory
+        Route::post('update/subcategory', 'UpdateSubcategory')->name('update.subcategory');
+        //delete subcategory
+        Route::get('delete/subcategory/{id}', 'DeleteSubcategory')->name('delete.subcategory');
+        // subcategory automatically load in admin add product page,
+        // when category is selected 
+        Route::get('/subcategory/ajax/{category_id}', 'GetSubcategory');
+
+    });
+});//End admin subcategory

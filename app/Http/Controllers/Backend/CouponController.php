@@ -8,5 +8,9 @@ use App\Models\Coupon;
 
 class CouponController extends Controller
 {
-    //
+    //All coupon
+    public function AllCoupon() {
+        $coupon = Coupon::latest()->get();
+        return view('backend.coupon.coupon_all', compact('coupon'));
+    }//end
 }
