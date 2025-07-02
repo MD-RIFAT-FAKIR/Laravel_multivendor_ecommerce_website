@@ -374,7 +374,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 
 //Shipping Area all route
 Route::middleware(['auth', 'role:admin'])->group(function() {
-    
+    //division 
     Route::controller(ShippingAreaController::class)->group(function() {
         //all division
         Route::get('all/division', 'AllDivision')->name('all.division');
@@ -388,5 +388,24 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::post('update/division', 'UpdateDivision')->name('update.division');
         //delete division
         Route::get('delete/division/{id}', 'DeleteDivision')->name('delete.division');
-    });
+    });//end division
+
+
+    //district 
+    Route::controller(ShippingAreaController::class)->group(function() {
+        //all division
+        Route::get('all/district', 'AllDistrict')->name('all.district');
+        //add division
+        Route::get('add/division' , 'AddDivision')->name('add.division');
+        //store division
+        Route::post('store/division' , 'StoreDivision')->name('store.division');
+        //edit division
+        Route::get('edit/division/{id}', 'EditDivision')->name('edit.division');
+        //update division
+        Route::post('update/division', 'UpdateDivision')->name('update.division');
+        //delete division
+        Route::get('delete/division/{id}', 'DeleteDivision')->name('delete.division');
+    });//end district
+
+
 });//Shipping Area system
