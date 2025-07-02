@@ -369,4 +369,24 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //delete subcategory
         Route::get('delete/coupon/{id}', 'DeleteCoupon')->name('delete.coupon');
     });
-});//End admin subcategory
+});//End acoupn system
+
+
+//Shipping Area all route
+Route::middleware(['auth', 'role:admin'])->group(function() {
+    
+    Route::controller(ShippingAreaController::class)->group(function() {
+        //all coupon
+        Route::get('all/division', 'AllDivision')->name('all.division');
+        //add coupon
+        Route::get('add/coupon' , 'AddCoupon')->name('add.coupon');
+        //store coupon
+        Route::post('store/coupon' , 'StoreCoupon')->name('store.coupon');
+        //edit coupon
+        Route::get('edit/coupon/{id}', 'EditCoupon')->name('edit.coupon');
+        //update coupon
+        Route::post('update/coupon', 'UpdateCoupon')->name('update.coupon');
+        //delete subcategory
+        Route::get('delete/coupon/{id}', 'DeleteCoupon')->name('delete.coupon');
+    });
+});//Shipping Area system
