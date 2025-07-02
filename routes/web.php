@@ -393,10 +393,10 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 
     //district 
     Route::controller(ShippingAreaController::class)->group(function() {
-        //all division
+        //all district
         Route::get('all/district', 'AllDistrict')->name('all.district');
-        //add division
-        Route::get('add/division' , 'AddDivision')->name('add.division');
+        //add district
+        Route::get('add/district' , 'AddDistrict')->name('add.district');
         //store division
         Route::post('store/division' , 'StoreDivision')->name('store.division');
         //edit division
