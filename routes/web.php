@@ -376,10 +376,10 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 Route::middleware(['auth', 'role:admin'])->group(function() {
     
     Route::controller(ShippingAreaController::class)->group(function() {
-        //all coupon
+        //all division
         Route::get('all/division', 'AllDivision')->name('all.division');
-        //add coupon
-        Route::get('add/coupon' , 'AddCoupon')->name('add.coupon');
+        //add division
+        Route::get('add/division' , 'AddDivision')->name('add.division');
         //store coupon
         Route::post('store/coupon' , 'StoreCoupon')->name('store.coupon');
         //edit coupon
