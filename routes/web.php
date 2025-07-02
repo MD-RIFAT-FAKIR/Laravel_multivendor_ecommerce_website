@@ -380,8 +380,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('all/division', 'AllDivision')->name('all.division');
         //add division
         Route::get('add/division' , 'AddDivision')->name('add.division');
-        //store coupon
-        Route::post('store/coupon' , 'StoreCoupon')->name('store.coupon');
+        //store division
+        Route::post('store/division' , 'StoreDivision')->name('store.division');
         //edit coupon
         Route::get('edit/coupon/{id}', 'EditCoupon')->name('edit.coupon');
         //update coupon

@@ -21,4 +21,19 @@ class ShippingAreaController extends Controller
     public function AddDivision() {
         return view('backend.ship.division.division_add');
     }//end
+
+    //store division
+    public function StoreDivision(Request $request) {
+        ShipDivision::insert([
+            'division_name' => strtoupper($request->division_name),
+        ]);
+
+        $notification = array (
+            'message' => 'Division Inserted Successfully',
+            'alert-type' => 'success'
+        );
+    
+        return redirect()->route('all.division')->with($notification);
+ 
+    }//end
 }
