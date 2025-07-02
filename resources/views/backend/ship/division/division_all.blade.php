@@ -39,7 +39,7 @@
                     <td>{{$key+1}}</td>
                     <td>{{$item->division_name}}</td>
                     <td>
-                        <a href="{{ route('edit.subcategory',$item->id) }}" class="btn btn-info">Edit</a>
+                        <a href="{{ route('edit.division',$item->id) }}" class="btn btn-info">Edit</a>
                         <a href="{{ route('delete.subcategory',$item->id) }}" class="btn btn-danger" id="delete">Delete</a>
                     </td>
                 </tr>

@@ -382,8 +382,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('add/division' , 'AddDivision')->name('add.division');
         //store division
         Route::post('store/division' , 'StoreDivision')->name('store.division');
-        //edit coupon
-        Route::get('edit/coupon/{id}', 'EditCoupon')->name('edit.coupon');
+        //edit division
+        Route::get('edit/division/{id}', 'EditDivision')->name('edit.division');
         //update coupon
         Route::post('update/coupon', 'UpdateCoupon')->name('update.coupon');
         //delete subcategory
