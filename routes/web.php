@@ -23,6 +23,7 @@ use App\Http\Controllers\User\WishlistConrtoller;
 use App\Http\Controllers\User\CompareController;
 
 use App\Http\Controllers\Backend\CouponController;
+use App\Http\Controllers\Backend\ShippingAreaController;
 
 
 
