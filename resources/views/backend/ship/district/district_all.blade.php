@@ -38,8 +38,8 @@
             @foreach($district as $key => $item)
                 <tr>
                     <td>{{$key+1}}</td>
-                    <td>{{$item->division_id}}</td>
-                    <td>{{$item->district_name}}</td>
+                    <td>{{$item['division']['division_name']}}</td>
+                    <td>{{$item->districts_name}}</td>
                     <td>
                         <a href="{{ route('edit.division',$item->id) }}" class="btn btn-info">Edit</a>
                         <a href="{{ route('delete.division',$item->id) }}" class="btn btn-danger" id="delete">Delete</a>

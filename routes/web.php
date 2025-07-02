@@ -397,8 +397,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('all/district', 'AllDistrict')->name('all.district');
         //add district
         Route::get('add/district' , 'AddDistrict')->name('add.district');
-        //store division
-        Route::post('store/division' , 'StoreDivision')->name('store.division');
+        //store district
+        Route::post('store/district' , 'StoreDistrict')->name('store.district');
         //edit division
         Route::get('edit/division/{id}', 'EditDivision')->name('edit.division');
         //update division
