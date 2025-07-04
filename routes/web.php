@@ -402,7 +402,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //edit district
         Route::get('edit/district/{id}', 'EditDistrict')->name('edit.district');
         //update division
-        Route::post('update/division', 'UpdateDivision')->name('update.division');
+        Route::post('update/district', 'UpdateDistrict')->name('update.district');
         //delete division
         Route::get('delete/division/{id}', 'DeleteDivision')->name('delete.division');
     });//end district
