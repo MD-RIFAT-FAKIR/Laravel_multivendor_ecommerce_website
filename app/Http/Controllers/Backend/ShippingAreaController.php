@@ -142,4 +142,12 @@ class ShippingAreaController extends Controller
         return redirect()->back()->with($notification);
     }//end
 
+
+    ////////State/////////////
+
+    //All state
+    public function AllState() {
+        $state = ShipState::latest()->get();
+        return view('backend.ship.state.state_all', compact('state'));
+    }//end
 }

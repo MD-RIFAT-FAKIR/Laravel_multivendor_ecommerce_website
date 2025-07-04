@@ -1,22 +1,22 @@
 @extends('admin.admin_dashboard')
-@section('admin')
 
+@section('admin')
 <div class="page-content">
 <!--breadcrumb-->
 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-<div class="breadcrumb-title pe-3">Slider</div>
+<div class="breadcrumb-title pe-3">State</div>
     <div class="ps-3">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0 p-0">
                 <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">All Slider</li>
+                <li class="breadcrumb-item active" aria-current="page">All State</li>
             </ol>
         </nav>
     </div>
     <div class="ms-auto">
         <div class="btn-group">
-        <a href="{{ route('add.slider') }}" class="btn btn-primary">Add Slider</a> 
+        <a href="{{ route('add.district') }}" class="btn btn-primary">Add State</a> 
         </div>
     </div>
 </div>
@@ -29,22 +29,22 @@
             <thead>
                 <tr>
                     <th>Sl</th>
-                    <th>Slider Title</th>
-                    <th>Short Title</th>
-                    <th>Slider Image</th>
+                    <th>Division name</th>
+                    <th>District name</th>
+                    <th>State name</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-            @foreach($sliders as $key => $item)
+            @foreach($state as $key => $item)
                 <tr>
                     <td>{{$key+1}}</td>
-                    <td>{{$item->slider_title}}</td>
-                    <td>{{$item->short_title}}</td>
-                    <td><img src="{{ asset($item->slider_image) }}" style="width: 70px; height: 40px;"></td>
+                    <td>{{$item['division']['division_name']}}</td>
+                    <td>{{$item['district']['districts_name']}}</td>
+                    <td>{{$item->state_name}}</td>
                     <td>
-                        <a href="{{ route('edit.slider',$item->id) }}" class="btn btn-info">Edit</a>
-                        <a href="{{ route('delete.slider',$item->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                        <a href="{{ route('edit.district',$item->id) }}" class="btn btn-info">Edit</a>
+                        <a href="{{ route('delete.district',$item->id) }}" class="btn btn-danger" id="delete">Delete</a>
                     </td>
                 </tr>
             @endforeach
@@ -52,9 +52,9 @@
             <tfoot>
                 <tr>
                     <th>Sl</th>
-                    <th>Slider Title</th>
-                    <th>Short Title</th>
-                    <th>Slider Image</th>
+                    <th>Division name</th>
+                    <th>District name</th>
+                    <th>State name</th>
                     <th>Action</th>
                 </tr>
             </tfoot>

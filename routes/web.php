@@ -408,4 +408,21 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     });//end district
 
 
+    //state
+    Route::controller(ShippingAreaController::class)->group(function() {
+        //all district
+        Route::get('all/state', 'AllState')->name('all.state');
+        //add district
+        Route::get('add/district' , 'AddDistrict')->name('add.district');
+        //store district
+        Route::post('store/district' , 'StoreDistrict')->name('store.district');
+        //edit district
+        Route::get('edit/district/{id}', 'EditDistrict')->name('edit.district');
+        //update division
+        Route::post('update/district', 'UpdateDistrict')->name('update.district');
+        //delete division
+        Route::get('delete/district/{id}', 'DeleteDistrict')->name('delete.district');
+    });//end district
+
+
 });//Shipping Area system
