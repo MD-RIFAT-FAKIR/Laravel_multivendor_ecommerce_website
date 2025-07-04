@@ -404,7 +404,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //update division
         Route::post('update/district', 'UpdateDistrict')->name('update.district');
         //delete division
-        Route::get('delete/division/{id}', 'DeleteDivision')->name('delete.division');
+        Route::get('delete/district/{id}', 'DeleteDistrict')->name('delete.district');
     });//end district
 
 
