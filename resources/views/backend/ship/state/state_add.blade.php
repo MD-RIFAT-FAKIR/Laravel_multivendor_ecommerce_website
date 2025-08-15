@@ -44,10 +44,9 @@
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <select name="districts_id" class="form-select mb-3" aria-label="Default select example">
-                                            <option selected>Select District Name</option>
-                                            @foreach($district as $item)
-                                            <option value="{{ $item->id }}">{{ $item->districts_name }}</option>
-                                            @endforeach
+                                            <option>
+                                                
+                                            </option>                                           
                                         </select>
                                     </div>
                                 </div>
@@ -104,4 +103,32 @@
     
 </script>
 <!-- end form validation -->
+
+ <!-- load all subcategory related to category -->
+		<script type="text/javascript">
+  		
+  		$(document).ready(function(){
+  			$('select[name="division_id"]').on('change', function(){
+  				var division_id = $(this).val();
+  				if (division_id) {
+  					$.ajax({
+  						url: "{{ url('/districts/ajax') }}/"+division_id,
+  						type: "GET",
+  						dataType:"json",
+  						success:function(data){
+  							$('select[name="districts_id"]').html('');
+  							var d =$('select[name="districts_id"]').empty();
+  							$.each(data, function(key, value){
+  								$('select[name="districts_id"]').append('<option value="'+ value.id + '">' + value.districts_name + '</option>');
+  							});
+  						},
+
+  					});
+  				} else {
+  					alert('danger');
+  				}
+  			});
+  		});
+  </script>
+
 @endsection
