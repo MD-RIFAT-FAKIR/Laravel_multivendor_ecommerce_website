@@ -419,7 +419,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //edit district
         Route::get('edit/state/{id}', 'EditState')->name('edit.state');
         //update division
-        Route::post('update/district', 'UpdateDistrict')->name('update.district');
+        Route::post('update/state/{id}', 'UpdateState')->name('update.state');
         //delete division
         Route::get('delete/district/{id}', 'DeleteDistrict')->name('delete.district');
         //selected division related all distrist will load 

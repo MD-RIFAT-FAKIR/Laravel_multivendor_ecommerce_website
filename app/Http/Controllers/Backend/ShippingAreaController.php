@@ -189,7 +189,21 @@ class ShippingAreaController extends Controller
         $division = ShipDivision::orderBy('division_name', 'ASC')->get();
         $district = ShipDistrict::orderBy('districts_name', 'ASC')->get();
 
-        return view('backend.ship.state.state_edit', compact('state','division','district'));
-        
+        return view('backend.ship.state.state_edit', compact('state','division','district'));  
+    }
+
+    public function UpdateState(Request $request , $id) {
+        $state = ShipState::findOrFail($id)->update([
+            'division_id'  => $request->division_id,
+            'districts_id' => $request->districts_id,
+            'state_name'   => $request->state_name,
+        ]);
+
+        $notification = array(
+            'message'=> 'State Updated Successfully',
+            'alert-type'=> 'success'
+        );
+
+        return redirect()->route('all.state')->with($notification);
     }
 }
