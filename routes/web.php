@@ -413,7 +413,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //all district
         Route::get('all/state', 'AllState')->name('all.state');
         //add district
-        Route::get('add/district' , 'AddDistrict')->name('add.district');
+        Route::get('add/state' , 'AddState')->name('add.state');
         //store district
         Route::post('store/district' , 'StoreDistrict')->name('store.district');
         //edit district

@@ -16,7 +16,7 @@
     </div>
     <div class="ms-auto">
         <div class="btn-group">
-        <a href="{{ route('add.district') }}" class="btn btn-primary">Add State</a> 
+        <a href="{{ route('add.state') }}" class="btn btn-primary">Add State</a> 
         </div>
     </div>
 </div>
