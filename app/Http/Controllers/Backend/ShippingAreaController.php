@@ -192,6 +192,7 @@ class ShippingAreaController extends Controller
         return view('backend.ship.state.state_edit', compact('state','division','district'));  
     }
 
+    //update shipping area's State
     public function UpdateState(Request $request , $id) {
         $state = ShipState::findOrFail($id)->update([
             'division_id'  => $request->division_id,
@@ -205,5 +206,17 @@ class ShippingAreaController extends Controller
         );
 
         return redirect()->route('all.state')->with($notification);
+    }
+
+    //delete shipping area's state
+    public function DeleteState($id) {
+        ShipState::findOrFail($id)->delete();
+    
+        $notification = array(
+            'message'=> 'State Deleted Successfully',
+            'alert-type'=> 'success'
+        );
+
+        return redirect()->back()->with($notification);
     }
 }
