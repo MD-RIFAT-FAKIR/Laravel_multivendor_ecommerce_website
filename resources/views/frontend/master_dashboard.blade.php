@@ -744,7 +744,18 @@
                     }
                 }
             });
-        } 
+        } //end apply coupon
+
+        function couponCalculation() {
+            $.ajax({
+                type: 'GET',
+                dataType: 'json',
+                url: '/coupon-calculation',
+                success: function(data) {
+                    
+                }
+            });
+        }
 
      </script>
     <!-- End Apply coupon in my cart -->
