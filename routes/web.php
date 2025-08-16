@@ -315,6 +315,11 @@ Route::post('/dcart/data/store/{id}', [CartController::class, 'AddToCartDetails'
 Route::post('/add-to-wishlist/{product_id}', [WishlistConrtoller::class, 'addToWishlist']);
 /// Add to Compare 
 Route::post('/add-to-compare/{product_id}', [CompareController::class, 'AddToCompare']);
+//Frontend apply coupon
+Route::post('apply-coupon', [CartController::class,'CouponApply']);
+
+
+
 
     //wishlist all route
     Route::middleware(['auth','role:user'])->group(function() {

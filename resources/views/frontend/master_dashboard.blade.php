@@ -705,6 +705,50 @@
 
     <!-- End remove product from mycart page -->
 
+    <!-- Apply coupon in my cart -->
+     <script type="text/javascript">
+        function applyCoupon() {
+            var coupon_name = $('#coupon_name').val();
+
+            $.ajax({
+                type:'POST',
+                data: {coupon_name:coupon_name},
+                dataType: 'json',
+                url:'/apply-coupon',
+                success:function(data) {
+                    if(data.validity == true) {
+                        $('#couponField').hide(); 
+                    }
+
+
+                    //sweet alart
+                    const Toast = swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+
+                    if($.isEmptyObject(data.error)) {
+                        Toast.fire({
+                            type: 'success',
+                            icon: "success",
+                            title: data.success
+                        });
+                    }else{
+                        Toast.fire({
+                            type: 'error',
+                            icon: "error",
+                            title: data.error
+                        })
+                    }
+                }
+            });
+        } 
+
+     </script>
+    <!-- End Apply coupon in my cart -->
+
 
 </body>
 
